@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Model checkpoints
+*.pt
+*.pth
+
+# Editor / OS
+.vscode/
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
