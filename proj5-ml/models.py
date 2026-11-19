@@ -42,6 +42,7 @@ class PerceptronModel(Module):
         super(PerceptronModel, self).__init__()
 
         "*** YOUR CODE HERE ***"
+        self.w = Parameter(ones(1, dimensions))
 
 
     def get_weights(self):
@@ -61,6 +62,7 @@ class PerceptronModel(Module):
         The pytorch function `tensordot` may be helpful here.
         """
         "*** YOUR CODE HERE ***"
+        return tensordot(x, self.w, dims=([1], [1])).flatten()
 
         
 
@@ -73,6 +75,7 @@ class PerceptronModel(Module):
         score = self(x)
 
         "*** YOUR CODE HERE ***"
+        return 1 if score.item() >= 0 else -1
 
 
 
@@ -87,6 +90,10 @@ class RegressionModel(Module):
         # Initialize your model parameters here
         "*** YOUR CODE HERE ***"
         super().__init__()
+        hidden = 128
+        self.layer1 = Linear(1, hidden)
+        self.layer2 = Linear(hidden, hidden)
+        self.output = Linear(hidden, 1)
    
 
     def forward(self, x):
@@ -99,6 +106,9 @@ class RegressionModel(Module):
             A node with shape (batch_size x 1) containing predicted y-values
         """
         "*** YOUR CODE HERE ***"
+        h = relu(self.layer1(x))
+        h = relu(self.layer2(h))
+        return self.output(h)
 
 
 class DigitClassificationModel(Module):
@@ -122,6 +132,9 @@ class DigitClassificationModel(Module):
         input_size = 28 * 28
         output_size = 10
         "*** YOUR CODE HERE ***"
+        self.layer1 = Linear(input_size, 256)
+        self.layer2 = Linear(256, 128)
+        self.output = Linear(128, output_size)
 
 
     def forward(self, x):
@@ -139,6 +152,9 @@ class DigitClassificationModel(Module):
                 (also called logits)
         """
         """ YOUR CODE HERE """
+        h = relu(self.layer1(x))
+        h = relu(self.layer2(h))
+        return self.output(h)
 
 
 
@@ -161,6 +177,11 @@ class LanguageIDModel(Module):
         super(LanguageIDModel, self).__init__()
         "*** YOUR CODE HERE ***"
         # Initialize your model parameters here
+        self.hidden_size = 256
+        self.x_layer = Linear(self.num_chars, self.hidden_size)                    # W_x (+ bias)
+        self.h_layer = Linear(self.hidden_size, self.hidden_size, bias=False)    # W_hidden
+        self.out_hidden = Linear(self.hidden_size, self.hidden_size)
+        self.output = Linear(self.hidden_size, len(self.languages))
 
 
 
@@ -194,6 +215,17 @@ class LanguageIDModel(Module):
                 (also called logits)
         """
         "*** YOUR CODE HERE ***"
+        batch_size = xs[0].shape[0]
+        # h starts at zero, so the first step is f_initial(x_0) = relu(x_0 W_x + b)
+        h = zeros((batch_size, self.hidden_size))
+        for x in xs:
+            h_new = relu(self.x_layer(x) + self.h_layer(h))
+            # Training samples are zero-padded to a fixed length; a padding step is an
+            # all-zero row, so keep the previous hidden state for those rows.
+            is_char = x.sum(dim=1, keepdim=True)
+            h = is_char * h_new + (1 - is_char) * h
+        h = relu(self.out_hidden(h))
+        return self.output(h)
 
 
 
@@ -217,6 +249,15 @@ def Convolve(input: tensor, weight: tensor):
     weight_dimensions = weight.shape
     Output_Tensor = tensor(())
     "*** YOUR CODE HERE ***"
+    in_h, in_w = input_tensor_dimensions
+    w_h, w_w = weight_dimensions
+    out_h, out_w = in_h - w_h + 1, in_w - w_w + 1
+    # a[i][j] = sum_{p,q} w[p][q] * x[i+p][j+q]: accumulate one shifted window
+    # of the input per weight entry (equivalent to the per-output-cell loop).
+    Output_Tensor = zeros((out_h, out_w))
+    for p in range(w_h):
+        for q in range(w_w):
+            Output_Tensor = Output_Tensor + weight[p, q] * input[p:p + out_h, q:q + out_w]
 
     "*** End Code ***"
     return Output_Tensor
@@ -241,6 +282,9 @@ class DigitConvolutionalModel(Module):
 
         self.convolution_weights = Parameter(ones((3, 3)))
         """ YOUR CODE HERE """
+        conv_output_size = 26 * 26
+        self.layer1 = Linear(conv_output_size, 128)
+        self.output = Linear(128, output_size)
 
 
     def forward(self, x):
@@ -254,6 +298,8 @@ class DigitConvolutionalModel(Module):
         )
         x = x.flatten(start_dim=1)
         """ YOUR CODE HERE """
+        x = relu(self.layer1(x))
+        return self.output(x)
 
 
 class Attention(Module):
@@ -293,4 +339,10 @@ class Attention(Module):
         B, T, C = input.size()
 
         """YOUR CODE HERE"""
+        Q = self.q_layer(input)
+        K = self.k_layer(input)
+        V = self.v_layer(input)
+        M = matmul(Q, movedim(K, 1, 2)) / (self.layer_size ** 0.5)
+        M = M.masked_fill(self.mask[:, :, :T, :T] == 0, float('-inf'))[0]
+        return matmul(softmax(M, dim=-1), V)
 
