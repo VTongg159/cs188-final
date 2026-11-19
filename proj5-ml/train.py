@@ -31,6 +31,14 @@ def train_perceptron(model, dataset):
     with no_grad():
         dataloader = DataLoader(dataset, batch_size=1, shuffle=True)
         "*** YOUR CODE HERE ***"
+        converged = False
+        while not converged:
+            converged = True
+            for batch in dataloader:
+                x, y = batch['x'], batch['label'].item()
+                if model.get_prediction(x) != y:
+                    model.w += y * x
+                    converged = False
 
 
 def train_regression(model, dataset):
@@ -49,6 +57,20 @@ def train_regression(model, dataset):
         
     """
     "*** YOUR CODE HERE ***"
+    batch_size = 20                      # 200 examples -> divides evenly
+    dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
+    optimizer = optim.Adam(model.parameters(), lr=0.002)
+    target_loss = 0.005                  # well below the 0.02 threshold
+    for epoch in range(2000):
+        total_loss = 0.0
+        for batch in dataloader:
+            optimizer.zero_grad()
+            loss = regression_loss(model(batch['x']), batch['label'])
+            loss.backward()
+            optimizer.step()
+            total_loss += loss.item() * len(batch['x'])
+        if total_loss / len(dataset) < target_loss:
+            break
 
 
 def train_digitclassifier(model, dataset):
@@ -57,6 +79,18 @@ def train_digitclassifier(model, dataset):
     """
     model.train()
     """ YOUR CODE HERE """
+    batch_size = 100                     # 60000 examples -> divides evenly
+    dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
+    optimizer = optim.Adam(model.parameters(), lr=0.001)
+    for epoch in range(20):
+        for batch in dataloader:
+            optimizer.zero_grad()
+            loss = digitclassifier_loss(model(batch['x']), batch['label'])
+            loss.backward()
+            optimizer.step()
+        # Test accuracy is graded at 97%, so stop with some margin on validation.
+        if dataset.get_validation_accuracy() >= 0.985:
+            break
 
 
 def train_languageid(model, dataset):
@@ -75,6 +109,18 @@ def train_languageid(model, dataset):
     """
     model.train()
     "*** YOUR CODE HERE ***"
+    batch_size = 32
+    dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
+    optimizer = optim.Adam(model.parameters(), lr=0.001)
+    for epoch in range(20):
+        for batch in dataloader:
+            xs = movedim(batch['x'], 0, 1)   # (batch, length, chars) -> (length, batch, chars)
+            optimizer.zero_grad()
+            loss = languageid_loss(model(xs), batch['label'])
+            loss.backward()
+            optimizer.step()
+        if dataset.get_validation_accuracy() >= 0.86:
+            break
 
 
 
@@ -83,3 +129,14 @@ def Train_DigitConvolution(model, dataset):
     Trains the model.
     """
     """ YOUR CODE HERE """
+    batch_size = 10
+    dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
+    optimizer = optim.Adam(model.parameters(), lr=0.001)
+    for epoch in range(30):
+        for batch in dataloader:
+            optimizer.zero_grad()
+            loss = digitconvolution_Loss(model(batch['x']), batch['label'])
+            loss.backward()
+            optimizer.step()
+        if dataset.get_validation_accuracy() >= 0.9:
+            break
