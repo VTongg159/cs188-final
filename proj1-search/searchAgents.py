@@ -295,15 +295,16 @@ class CornersProblem(search.SearchProblem):
         Returns the start state (in your state space, not the full Pacman state
         space)
         """
-        "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        # Count a corner occupied at the start as already visited.
+        visited = sum(1 << i for i, corner in enumerate(self.corners)
+                      if corner == self.startingPosition)
+        return self.startingPosition, visited
 
     def isGoalState(self, state: Any):
         """
         Returns whether this search state is a goal state of the problem.
         """
-        "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        return state[1] == (1 << len(self.corners)) - 1
 
     def getSuccessors(self, state: Any):
         """
@@ -325,7 +326,16 @@ class CornersProblem(search.SearchProblem):
             #   nextx, nexty = int(x + dx), int(y + dy)
             #   hitsWall = self.walls[nextx][nexty]
 
-            "*** YOUR CODE HERE ***"
+            (x, y), visited = state
+            dx, dy = Actions.directionToVector(action)
+            next_position = int(x + dx), int(y + dy)
+            if not self.walls[next_position[0]][next_position[1]]:
+                next_visited = visited
+                for i, corner in enumerate(self.corners):
+                    if next_position == corner:
+                        next_visited |= 1 << i
+                # Integers and tuples are immutable: siblings remain independent.
+                successors.append(((next_position, next_visited), action, 1))
 
         self._expanded += 1 # DO NOT CHANGE
         return successors
@@ -360,8 +370,26 @@ def cornersHeuristic(state: Any, problem: CornersProblem):
     corners = problem.corners # These are the corner coordinates
     walls = problem.walls # These are the walls of the maze, as a Grid (game.py)
 
-    "*** YOUR CODE HERE ***"
-    return 0 # Default to trivial solution
+    position, visited = state
+    remaining = ((1 << len(corners)) - 1) & ~visited
+    if not remaining:
+        return 0
+    # The corner-to-corner part depends only on this problem's fixed geometry.
+    # Held-Karp subset DP preserves the exact wall-free heuristic while avoiding
+    # repeated permutation enumeration. Four corners need only 4 * 16 entries.
+    if not hasattr(problem, '_corner_tour_costs'):
+        costs = {(i, 0): 0 for i in range(len(corners))}
+        distances = [[util.manhattanDistance(a, b) for b in corners]
+                     for a in corners]
+        for mask in range(1, 1 << len(corners)):
+            for first in range(len(corners)):
+                costs[first, mask] = min(
+                    distances[first][j] + costs[j, mask ^ (1 << j)]
+                    for j in range(len(corners)) if mask & (1 << j))
+        problem._corner_tour_costs = costs
+    return min(util.manhattanDistance(position, corner)
+               + problem._corner_tour_costs[i, remaining ^ (1 << i)]
+               for i, corner in enumerate(corners) if remaining & (1 << i))
 
 class AStarCornersAgent(SearchAgent):
     "A SearchAgent for FoodSearchProblem using A* and your foodHeuristic"
@@ -454,8 +482,47 @@ def foodHeuristic(state: Tuple[Tuple, List[List]], problem: FoodSearchProblem):
     problem.heuristicInfo['wallCount']
     """
     position, foodGrid = state
-    "*** YOUR CODE HERE ***"
-    return 0
+    foods = tuple(foodGrid.asList())
+    if not foods:
+        return 0
+
+    # Walls never change. One BFS per food supplies distances to all positions.
+    # The cache belongs to this problem instance, not to a global layout.
+    maps = problem.heuristicInfo.setdefault('food_distance_maps', {})
+    walls = problem.walls
+    for source in foods:
+        if source in maps:
+            continue
+        distances = {source: 0}
+        queue = util.Queue()
+        queue.push(source)
+        while not queue.isEmpty():
+            x, y = queue.pop()
+            for next_position in ((x + 1, y), (x - 1, y),
+                                  (x, y + 1), (x, y - 1)):
+                nx, ny = next_position
+                if (0 <= nx < walls.width and 0 <= ny < walls.height
+                        and not walls[nx][ny] and next_position not in distances):
+                    distances[next_position] = distances[(x, y)] + 1
+                    queue.push(next_position)
+        maps[source] = distances
+
+    nearest = min(maps[food].get(position, float('inf')) for food in foods)
+    tree_cache = problem.heuristicInfo.setdefault('food_mst_costs', {})
+    if foods not in tree_cache:
+        # Prim's algorithm on the complete graph weighted by maze distances.
+        edge_cost = {food: maps[foods[0]].get(food, float('inf'))
+                     for food in foods[1:]}
+        tree_cost = 0
+        while edge_cost:
+            chosen = min(edge_cost, key=edge_cost.get)
+            tree_cost += edge_cost.pop(chosen)
+            for food in edge_cost:
+                edge_cost[food] = min(edge_cost[food],
+                                      maps[chosen].get(food, float('inf')))
+        tree_cache[foods] = tree_cost
+    # Any completion must reach a first food and then connect all remaining food.
+    return nearest + tree_cache[foods]
 
 class ClosestDotSearchAgent(SearchAgent):
     "Search for all food using a sequence of searches"
@@ -485,8 +552,14 @@ class ClosestDotSearchAgent(SearchAgent):
         walls = gameState.getWalls()
         problem = AnyFoodSearchProblem(gameState)
 
-        "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        # Custom GameStates may contain food under Pacman. STOP consumes it and
+        # makes progress in the caller's loop, whereas an empty path would not.
+        if food[startPosition[0]][startPosition[1]]:
+            return [Directions.STOP]
+        actions = search.breadthFirstSearch(problem)
+        if not actions and food.count() > 0:
+            raise ValueError('Remaining food is unreachable from Pacman.')
+        return actions
 
 class AnyFoodSearchProblem(PositionSearchProblem):
     """
@@ -521,8 +594,7 @@ class AnyFoodSearchProblem(PositionSearchProblem):
         """
         x,y = state
 
-        "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        return self.food[x][y]
 
 def mazeDistance(point1: Tuple[int, int], point2: Tuple[int, int], gameState: pacman.GameState) -> int:
     """
