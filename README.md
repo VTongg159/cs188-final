@@ -15,23 +15,36 @@ This repository covers Projects 1, 2, 3 and 5.
 | `proj5-ml/` | Project 5 – Machine Learning | Perceptron, neural networks, RNN, CNN, attention (PyTorch) |
 | `docs/` | – | Reports and shared documents |
 
+## Getting started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/VTongg159/cs188-final.git
+cd cs188-final
+```
+
 ## Workflow
 
-- One branch per project: `proj1`, `proj2`, `proj3`, `proj5`. Do not commit directly to `main`.
-- Merge into `main` through a Pull Request.
-- Prefix commit messages with the project: `p1: ...`, `p2: ...`, `p3: ...`, `p5: ...`.
+- Work on a branch for your project: `proj1`, `proj2` or `proj3`. Do not commit directly to `main`.
+- Merge into `main` through a Pull Request, then delete the branch so the repository keeps only `main`.
+- Prefix commit messages with the project: `p1: ...`, `p2: ...`, `p3: ...`.
   Shared changes (README, docs, config) use `docs: ...` or `chore: ...`.
 - Only edit your own project folder.
-- The first commit of each project is the unmodified starter code (`pX: add original starter code`), so diffs show only our changes.
+- The first commit of each project is the unmodified starter code, so later diffs show only our changes:
+  download the project zip from the course website and extract its files directly into the project folder
+  (e.g. `proj1-search/search.py`, not `proj1-search/search/search.py`), then commit it as `pX: add original starter code`.
 
 ```bash
 git checkout main && git pull
 git checkout -b proj1          # first time; afterwards: git checkout proj1
-# ...edit code...
+# ...add starter code, edit code...
 git add proj1-search/
 git commit -m "p1: ..."
 git push -u origin proj1
-gh pr create --base main --head proj1
+gh pr create --base main --head proj1   # or open the Pull Request on GitHub
+# after the PR is merged: delete the branch (button on the PR page)
+git checkout main && git pull && git branch -d proj1
 ```
 
 ## Environment
@@ -41,12 +54,6 @@ conda create -n cs188 python=3.10 -y
 conda activate cs188
 pip install "numpy<2.0" matplotlib
 pip install torch --index-url https://download.pytorch.org/whl/cpu   # required for Project 5
-```
-
-If `PYTHONPATH` points to another Python installation (e.g. ROS), clear it inside the environment:
-
-```bash
-conda env config vars set PYTHONPATH= -n cs188
 ```
 
 ## Running the autograder
