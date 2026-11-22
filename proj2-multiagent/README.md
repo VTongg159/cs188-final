@@ -1,27 +1,27 @@
-# Project 2 — Multi-Agent Search
+# Project 2: Multi-Agent Search
 
-Pacman plays against ghosts using a reflex agent, Minimax, Alpha-Beta pruning, and Expectimax. A state evaluation function guides the search using food, capsules, and ghost positions. The implementation follows the [UC Berkeley CS188 Spring 2026 assignment](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj2/).
+Pacman plays against ghosts with a reflex agent, Minimax, Alpha-Beta and Expectimax ([assignment](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj2/)).
 
-Run these commands from the repository root on the `proj2` branch or on `main` after the PR is merged. The commands were verified on Python 3.12.3.
+- Agents and evaluation functions: [`multiAgents.py`](multiAgents.py)
+- Sources and AI-use note: [`reports/QUESTION_MAPPING.md`](reports/QUESTION_MAPPING.md)
+
+## Autograder
 
 ```bash
 cd proj2-multiagent
-python3 -B autograder.py --no-graphics
-python3 -B autograder.py -q q5 --no-graphics
+python3 autograder.py --no-graphics          # all questions: 25/25
+python3 autograder.py -q q2 --no-graphics    # one question
 ```
 
-The local autograder reports **25/25** for Q1–Q5. Q6 is the course's separate AI-use and collaboration reflection on Gradescope.
-
-## Run Pacman
-
-From the repository root, use `-q` to run without the GUI or replace it with `-t` for a text display. `-f` fixes the random seed for a reproducible run.
+## Run Pacman (from this folder or the repository root)
 
 ```bash
-python3 -B run.py -p ReflexAgent -l testClassic -q -f
-python3 -B run.py -p MinimaxAgent -l minimaxClassic -a depth=3 -q -f
-python3 -B run.py -p AlphaBetaAgent -l smallClassic -a depth=3 -q -f
-python3 -B run.py -p ExpectimaxAgent -l minimaxClassic -a depth=3 -q -f
-python3 -B run.py -p ExpectimaxAgent -l smallClassic -a depth=2,evalFn=better -k 1 -q -n 10 -f
+python3 run.py -l testClassic    -p ReflexAgent
+python3 run.py -l minimaxClassic -p MinimaxAgent    -a depth=3
+python3 run.py -l smallClassic   -p AlphaBetaAgent  -a depth=3
+python3 run.py -l minimaxClassic -p ExpectimaxAgent -a depth=3
+python3 run.py -l smallClassic   -p ExpectimaxAgent -a evalFn=better -n 10 -q
 ```
 
-The agents and evaluation function are in [`multiAgents.py`](multiAgents.py). See the [sources and AI-use note](reports/QUESTION_MAPPING.md) for attribution.
+Add `-q` to skip the graphics, `-f` to play the same game every run.
+MinimaxAgent often loses on `minimaxClassic`: it assumes the ghosts play perfectly. Expectimax wins there.

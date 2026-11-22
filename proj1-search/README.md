@@ -1,29 +1,29 @@
-# Project 1 — Search
+# Project 1: Search
 
-Pacman uses DFS, BFS, uniform-cost search, and A* to navigate mazes and collect food. The implementation follows the [UC Berkeley CS188 Spring 2026 assignment](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj1/).
+Pacman finds paths with DFS, BFS, UCS and A* ([assignment](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj1/)).
 
-Run these commands from the repository root on the `proj1` branch or on `main` after the PR is merged. The commands were verified on Python 3.12.3.
+- Algorithms: [`search.py`](search.py)
+- Search problems and heuristics: [`searchAgents.py`](searchAgents.py)
+- Sources and AI-use note: [`reports/QUESTION_MAPPING.md`](reports/QUESTION_MAPPING.md)
+
+## Autograder
 
 ```bash
 cd proj1-search
-python3 -B autograder.py --no-graphics
-python3 -B autograder.py -q q6 --no-graphics
+python3 autograder.py --no-graphics          # all questions: 26/25
+python3 autograder.py -q q1 --no-graphics    # one question
 ```
 
-The local autograder reports **26/25**, including the bonus point for Q7. Q9 is the course's separate AI-use and collaboration reflection on Gradescope.
-
-## Run Pacman
-
-From the repository root, use `-q` to run without the GUI or replace it with `-t` for a text display.
+## Run Pacman (from this folder or the repository root)
 
 ```bash
-python3 -B run.py -l mediumMaze -p SearchAgent -a fn=dfs -q
-python3 -B run.py -l mediumMaze -p SearchAgent -a fn=bfs -q
-python3 -B run.py -l mediumMaze -p SearchAgent -a fn=ucs -q
-python3 -B run.py -l bigMaze -p SearchAgent -a fn=astar,heuristic=manhattanHeuristic -q
-python3 -B run.py -l mediumCorners -p AStarCornersAgent -q
-python3 -B run.py -l trickySearch -p AStarFoodSearchAgent -q
-python3 -B run.py -l bigSearch -p ClosestDotSearchAgent -q
+python3 run.py -l mediumMaze    -p SearchAgent -a fn=dfs
+python3 run.py -l mediumMaze    -p SearchAgent -a fn=bfs
+python3 run.py -l mediumMaze    -p SearchAgent -a fn=ucs
+python3 run.py -l bigMaze       -p SearchAgent -a fn=astar,heuristic=manhattanHeuristic
+python3 run.py -l mediumCorners -p AStarCornersAgent
+python3 run.py -l trickySearch  -p AStarFoodSearchAgent
+python3 run.py -l bigSearch     -p ClosestDotSearchAgent
 ```
 
-The search algorithms are in [`search.py`](search.py). Pacman agents, search problems, and heuristics are in [`searchAgents.py`](searchAgents.py). See the [sources and AI-use note](reports/QUESTION_MAPPING.md) for attribution.
+Add `-q` to skip the graphics.
