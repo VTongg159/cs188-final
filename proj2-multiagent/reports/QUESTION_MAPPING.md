@@ -32,3 +32,14 @@ viết không có AI. Chính sách Spring 2026 yêu cầu tự viết bài nộp
 vấn và không xem lời giải của người khác; quy trình tự học này không đáp ứng
 điều kiện tác giả của bài nộp chính thức. Cần khai báo trung thực Q6 trên
 Gradescope; Codex không tự điền hoặc nộp. Giữ nguyên giấy phép Berkeley.
+
+## Cập nhật 22/11/2026: đơn giản hóa code và dùng môi trường chung
+
+Bảng trên mô tả phiên bản trước. Code đã được viết lại cho đơn giản hơn, với sự hỗ trợ của Claude Code:
+
+- Q1: score + 10/khoảng cách Manhattan tới food gần nhất, đuổi ghost đang sợ, phạt nặng khi ghost hoạt động ở sát bên, phạt STOP.
+- Q2–Q4: mỗi agent tách thành `getAction`, `maxValue` và `minValue`/`expValue`. Depth tăng sau khi ghost cuối cùng đi.
+  Alpha-beta chỉ cắt khi `>`/`<` nghiêm ngặt.
+- Q5: score, khoảng cách tới food gần nhất, số food/capsule còn lại, đuổi ghost đang sợ, tránh ghost hoạt động.
+
+Autograder vẫn đạt 25/25 (Q1 trung bình ~1240, Q5 trung bình ~1273, cả hai thắng 10/10).
