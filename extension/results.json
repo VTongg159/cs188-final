@@ -1,0 +1,5171 @@
+{
+ "scenario_a": {
+  "mud": [
+   {
+    "name": "DFS",
+    "cost": 712,
+    "steps": 468,
+    "mud_steps": 61,
+    "expanded": 1146,
+    "peak_fringe": 62,
+    "ms": 4.145187995163724,
+    "gap": 263.265306122449
+   },
+   {
+    "name": "BFS",
+    "cost": 232,
+    "steps": 136,
+    "mud_steps": 24,
+    "expanded": 1081,
+    "peak_fringe": 19,
+    "ms": 3.1617910135537386,
+    "gap": 18.367346938775512
+   },
+   {
+    "name": "UCS",
+    "cost": 196,
+    "steps": 152,
+    "mud_steps": 11,
+    "expanded": 992,
+    "peak_fringe": 22,
+    "ms": 3.710633987793699,
+    "gap": 0.0
+   },
+   {
+    "name": "A* Manhattan",
+    "cost": 196,
+    "steps": 152,
+    "mud_steps": 11,
+    "expanded": 534,
+    "peak_fringe": 20,
+    "ms": 2.464456018060446,
+    "gap": 0.0
+   },
+   {
+    "name": "A* Euclid",
+    "cost": 196,
+    "steps": 152,
+    "mud_steps": 11,
+    "expanded": 628,
+    "peak_fringe": 23,
+    "ms": 2.400549012236297,
+    "gap": 0.0
+   }
+  ],
+  "no_mud": [
+   {
+    "name": "DFS",
+    "cost": 468,
+    "steps": 468,
+    "mud_steps": 0,
+    "expanded": 1146,
+    "peak_fringe": 62,
+    "ms": 4.194295004708692,
+    "gap": 244.11764705882354
+   },
+   {
+    "name": "BFS",
+    "cost": 136,
+    "steps": 136,
+    "mud_steps": 0,
+    "expanded": 1081,
+    "peak_fringe": 19,
+    "ms": 3.4957019961439073,
+    "gap": 0.0
+   },
+   {
+    "name": "UCS",
+    "cost": 136,
+    "steps": 136,
+    "mud_steps": 0,
+    "expanded": 1081,
+    "peak_fringe": 19,
+    "ms": 3.878079995047301,
+    "gap": 0.0
+   },
+   {
+    "name": "A* Manhattan",
+    "cost": 136,
+    "steps": 136,
+    "mud_steps": 0,
+    "expanded": 548,
+    "peak_fringe": 21,
+    "ms": 2.069820009637624,
+    "gap": 0.0
+   },
+   {
+    "name": "A* Euclid",
+    "cost": 136,
+    "steps": 136,
+    "mud_steps": 0,
+    "expanded": 722,
+    "peak_fringe": 22,
+    "ms": 2.783120988169685,
+    "gap": 0.0
+   }
+  ]
+ },
+ "scenario_a2": [
+  {
+   "name": "UCS",
+   "cost": 267,
+   "expanded": 43579,
+   "ms": 28366.69751998852,
+   "gap": 0.0
+  },
+  {
+   "name": "A* foodHeuristic",
+   "cost": 267,
+   "expanded": 11830,
+   "ms": 21767.106243001763,
+   "gap": 0.0
+  },
+  {
+   "name": "ClosestDot (BFS l\u1eb7p)",
+   "cost": 279,
+   "expanded": null,
+   "ms": 93.66457298165187,
+   "gap": 4.49438202247191
+  }
+ ],
+ "scenario_b": {
+  "ClosestDot|random": {
+   "n": 20,
+   "wins": 1,
+   "win_low": 0.008881219432873136,
+   "win_high": 0.23613589351256675,
+   "capped": 0,
+   "score": 1238.7,
+   "score_sd": 1557.4682693396999,
+   "food": 0.4099576271186441,
+   "moves": 246.3,
+   "ghosts": 0,
+   "ms_per_move": 5.982556554136007
+  },
+  "ClosestDot|directional": {
+   "n": 20,
+   "wins": 0,
+   "win_low": 0,
+   "win_high": 0.16113012549493322,
+   "capped": 0,
+   "score": 360.0,
+   "score_sd": 685.3996644294481,
+   "food": 0.20127118644067796,
+   "moves": 110,
+   "ghosts": 0.1,
+   "ms_per_move": 5.600768092679433
+  },
+  "Reflex|random": {
+   "n": 20,
+   "wins": 0,
+   "win_low": 0,
+   "win_high": 0.16113012549493322,
+   "capped": 15,
+   "score": 1195.6,
+   "score_sd": 943.8647360718589,
+   "food": 0.5924788135593221,
+   "moves": 1715.9,
+   "ghosts": 1.2,
+   "ms_per_move": 1.8680555924092388
+  },
+  "Reflex|directional": {
+   "n": 20,
+   "wins": 0,
+   "win_low": 0,
+   "win_high": 0.16113012549493322,
+   "capped": 0,
+   "score": 1018.05,
+   "score_sd": 917.8331806488585,
+   "food": 0.34735169491525425,
+   "moves": 321.45,
+   "ghosts": 1,
+   "ms_per_move": 2.1296399477348253
+  },
+  "AlphaBeta|random": {
+   "n": 20,
+   "wins": 0,
+   "win_low": 0,
+   "win_high": 0.16113012549493322,
+   "capped": 0,
+   "score": -43.15,
+   "score_sd": 312.21647538206565,
+   "food": 0.14766949152542372,
+   "moves": 270.15,
+   "ghosts": 0.15,
+   "ms_per_move": 46.20641000749042
+  },
+  "AlphaBeta|directional": {
+   "n": 20,
+   "wins": 0,
+   "win_low": 0,
+   "win_high": 0.16113012549493322,
+   "capped": 0,
+   "score": 10.95,
+   "score_sd": 227.0512001730006,
+   "food": 0.12966101694915255,
+   "moves": 101.05,
+   "ghosts": 0,
+   "ms_per_move": 42.28400401193027
+  },
+  "Expectimax|random": {
+   "n": 20,
+   "wins": 0,
+   "win_low": 0,
+   "win_high": 0.16113012549493322,
+   "capped": 0,
+   "score": -20.45,
+   "score_sd": 317.1940218541327,
+   "food": 0.16175847457627118,
+   "moves": 313.95,
+   "ghosts": 0.15,
+   "ms_per_move": 62.52347433018241
+  },
+  "Expectimax|directional": {
+   "n": 20,
+   "wins": 0,
+   "win_low": 0,
+   "win_high": 0.16113012549493322,
+   "capped": 0,
+   "score": 8.8,
+   "score_sd": 226.06737933633858,
+   "food": 0.1291313559322034,
+   "moves": 100.7,
+   "ghosts": 0,
+   "ms_per_move": 74.20600969434943
+  },
+  "ExpectimaxMaze|random": {
+   "n": 20,
+   "wins": 3,
+   "win_low": 0.05236779195949584,
+   "win_high": 0.36042329588695743,
+   "capped": 0,
+   "score": 1629.4,
+   "score_sd": 1603.2922815257361,
+   "food": 0.43421610169491526,
+   "moves": 280.1,
+   "ghosts": 1.05,
+   "ms_per_move": 67.91850940959382
+  },
+  "ExpectimaxMaze|directional": {
+   "n": 20,
+   "wins": 0,
+   "win_low": 0,
+   "win_high": 0.16113012549493322,
+   "capped": 0,
+   "score": 491.85,
+   "score_sd": 398.1805212463312,
+   "food": 0.2204449152542373,
+   "moves": 118.65,
+   "ghosts": 0.35,
+   "ms_per_move": 70.31318427100693
+  },
+  "TabularQ|random": {
+   "n": 20,
+   "wins": 0,
+   "win_low": 0,
+   "win_high": 0.16113012549493322,
+   "capped": 0,
+   "score": -481.35,
+   "score_sd": 142.67630321815884,
+   "food": 0.04385593220338983,
+   "moves": 188.35,
+   "ghosts": 0,
+   "ms_per_move": 0.6630277822374335
+  },
+  "TabularQ|directional": {
+   "n": 20,
+   "wins": 0,
+   "win_low": 0,
+   "win_high": 0.16113012549493322,
+   "capped": 0,
+   "score": -440.75,
+   "score_sd": 46.004211763707026,
+   "food": 0.02319915254237288,
+   "moves": 50.25,
+   "ghosts": 0,
+   "ms_per_move": 1.5422918399905492
+  },
+  "ApproxQ|random": {
+   "n": 20,
+   "wins": 18,
+   "win_low": 0.6989617935882066,
+   "win_high": 0.9721341060158468,
+   "capped": 0,
+   "score": 4138.45,
+   "score_sd": 1116.7665590892307,
+   "food": 0.9324152542372881,
+   "moves": 662.55,
+   "ghosts": 0,
+   "ms_per_move": 0.1968974094602459
+  },
+  "ApproxQ|directional": {
+   "n": 20,
+   "wins": 0,
+   "win_low": 0,
+   "win_high": 0.16113012549493322,
+   "capped": 0,
+   "score": 1143.1,
+   "score_sd": 987.7550252972646,
+   "food": 0.4024364406779661,
+   "moves": 256.4,
+   "ghosts": 0,
+   "ms_per_move": 0.32245199054620144
+  }
+ },
+ "games": {
+  "ClosestDot|random": [
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -347.0,
+    "food": 0.036016949152542374,
+    "moves": 17,
+    "ghosts": 0,
+    "ms_per_move": 13.738329825333922
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -365.0,
+    "food": 0.03177966101694915,
+    "moves": 15,
+    "ghosts": 0,
+    "ms_per_move": 18.05256026564166
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -365.0,
+    "food": 0.03177966101694915,
+    "moves": 15,
+    "ghosts": 0,
+    "ms_per_move": 18.258429735821363
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 165.0,
+    "food": 0.15677966101694915,
+    "moves": 75,
+    "ghosts": 0,
+    "ms_per_move": 1.9360307196620852
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 21.0,
+    "food": 0.1228813559322034,
+    "moves": 59,
+    "ghosts": 0,
+    "ms_per_move": 4.600912797702792
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -347.0,
+    "food": 0.036016949152542374,
+    "moves": 17,
+    "ghosts": 0,
+    "ms_per_move": 17.402465652112905
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 280.0,
+    "food": 0.1843220338983051,
+    "moves": 90,
+    "ghosts": 0,
+    "ms_per_move": 3.0266640116072567
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 39.0,
+    "food": 0.1271186440677966,
+    "moves": 61,
+    "ghosts": 0,
+    "ms_per_move": 3.9889919686085378
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -320.0,
+    "food": 0.0423728813559322,
+    "moves": 20,
+    "ghosts": 0,
+    "ms_per_move": 14.657104804064147
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1588.0,
+    "food": 0.5084745762711864,
+    "moves": 312,
+    "ghosts": 0,
+    "ms_per_move": 0.47086843812557605
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -347.0,
+    "food": 0.036016949152542374,
+    "moves": 17,
+    "ghosts": 0,
+    "ms_per_move": 17.991288054926212
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 2153.0,
+    "food": 0.6461864406779662,
+    "moves": 397,
+    "ghosts": 0,
+    "ms_per_move": 0.6887623142938994
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1487.0,
+    "food": 0.4830508474576271,
+    "moves": 293,
+    "ghosts": 0,
+    "ms_per_move": 0.808782554501763
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1929.0,
+    "food": 0.5911016949152542,
+    "moves": 361,
+    "ghosts": 0,
+    "ms_per_move": 0.7611029545829432
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 2877.0,
+    "food": 0.8177966101694916,
+    "moves": 483,
+    "ghosts": 0,
+    "ms_per_move": 0.5136763449352404
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1893.0,
+    "food": 0.5826271186440678,
+    "moves": 357,
+    "ghosts": 0,
+    "ms_per_move": 0.834239554752567
+   },
+   {
+    "win": true,
+    "lose": false,
+    "capped": false,
+    "score": 4568.0,
+    "food": 1.0,
+    "moves": 652,
+    "ghosts": 0,
+    "ms_per_move": 0.36945792223595403
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 3305.0,
+    "food": 0.923728813559322,
+    "moves": 555,
+    "ghosts": 0,
+    "ms_per_move": 0.5064557362054181
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 3048.0,
+    "food": 0.8580508474576272,
+    "moves": 502,
+    "ghosts": 0,
+    "ms_per_move": 0.602353124847298
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 3512.0,
+    "food": 0.9830508474576272,
+    "moves": 628,
+    "ghosts": 0,
+    "ms_per_move": 0.4426543027585948
+   }
+  ],
+  "ClosestDot|directional": [
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -365.0,
+    "food": 0.03177966101694915,
+    "moves": 15,
+    "ghosts": 0,
+    "ms_per_move": 19.532887204938255
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 191.0,
+    "food": 0.163135593220339,
+    "moves": 79,
+    "ghosts": 0,
+    "ms_per_move": 3.123980554858152
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -159.0,
+    "food": 0.08050847457627118,
+    "moves": 39,
+    "ghosts": 0,
+    "ms_per_move": 7.904684412866257
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -176.0,
+    "food": 0.07627118644067797,
+    "moves": 36,
+    "ghosts": 0,
+    "ms_per_move": 4.413583749232607
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 351.0,
+    "food": 0.20127118644067796,
+    "moves": 99,
+    "ghosts": 0,
+    "ms_per_move": 2.9987614858199403
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1451.0,
+    "food": 0.4745762711864407,
+    "moves": 289,
+    "ghosts": 0,
+    "ms_per_move": 0.6392404986311807
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 12.0,
+    "food": 0.12076271186440678,
+    "moves": 58,
+    "ghosts": 0,
+    "ms_per_move": 2.7404806741256396
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -365.0,
+    "food": 0.03177966101694915,
+    "moves": 15,
+    "ghosts": 0,
+    "ms_per_move": 20.452601734238364
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 111.0,
+    "food": 0.1440677966101695,
+    "moves": 69,
+    "ghosts": 0,
+    "ms_per_move": 3.6207176247220216
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 512.0,
+    "food": 0.23940677966101695,
+    "moves": 118,
+    "ghosts": 0,
+    "ms_per_move": 2.1006625261102507
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -176.0,
+    "food": 0.07627118644067797,
+    "moves": 36,
+    "ghosts": 0,
+    "ms_per_move": 4.392379473655537
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 191.0,
+    "food": 0.163135593220339,
+    "moves": 79,
+    "ghosts": 0,
+    "ms_per_move": 2.0543932778424807
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -365.0,
+    "food": 0.03177966101694915,
+    "moves": 15,
+    "ghosts": 0,
+    "ms_per_move": 20.615231135161594
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -159.0,
+    "food": 0.08050847457627118,
+    "moves": 39,
+    "ghosts": 0,
+    "ms_per_move": 6.375292024294583
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 102.0,
+    "food": 0.1419491525423729,
+    "moves": 68,
+    "ghosts": 0,
+    "ms_per_move": 4.351954882783021
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 611.0,
+    "food": 0.2627118644067797,
+    "moves": 129,
+    "ghosts": 0,
+    "ms_per_move": 1.9308129547059159
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1783.0,
+    "food": 0.5063559322033898,
+    "moves": 307,
+    "ghosts": 1,
+    "ms_per_move": 0.9739766349024003
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 450.0,
+    "food": 0.2245762711864407,
+    "moves": 110,
+    "ghosts": 0,
+    "ms_per_move": 2.716999417911707
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1683.0,
+    "food": 0.5317796610169492,
+    "moves": 327,
+    "ghosts": 0,
+    "ms_per_move": 0.48462518062570703
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1517.0,
+    "food": 0.4427966101694915,
+    "moves": 273,
+    "ghosts": 1,
+    "ms_per_move": 0.5920964061630543
+   }
+  ],
+  "Reflex|random": [
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -163.0,
+    "food": 0.08050847457627118,
+    "moves": 43,
+    "ghosts": 0,
+    "ms_per_move": 2.2859143988001915
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1797.0,
+    "food": 0.5021186440677966,
+    "moves": 473,
+    "ghosts": 2,
+    "ms_per_move": 2.0145960305974944
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -283.0,
+    "food": 0.1885593220338983,
+    "moves": 673,
+    "ghosts": 0,
+    "ms_per_move": 1.7067815410578693
+   },
+   {
+    "win": false,
+    "lose": false,
+    "capped": true,
+    "score": -80.0,
+    "food": 0.4067796610169492,
+    "moves": 2000,
+    "ghosts": 0,
+    "ms_per_move": 1.1462268282484729
+   },
+   {
+    "win": false,
+    "lose": false,
+    "capped": true,
+    "score": 2100.0,
+    "food": 0.826271186440678,
+    "moves": 2000,
+    "ghosts": 1,
+    "ms_per_move": 1.661860495019937
+   },
+   {
+    "win": false,
+    "lose": false,
+    "capped": true,
+    "score": 2090.0,
+    "food": 0.7817796610169492,
+    "moves": 2000,
+    "ghosts": 2,
+    "ms_per_move": 1.7195896239572903
+   },
+   {
+    "win": false,
+    "lose": false,
+    "capped": true,
+    "score": -180.0,
+    "food": 0.3855932203389831,
+    "moves": 2000,
+    "ghosts": 0,
+    "ms_per_move": 1.7812837170204148
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 388.0,
+    "food": 0.4809322033898305,
+    "moves": 1582,
+    "ghosts": 1,
+    "ms_per_move": 2.2722363585162335
+   },
+   {
+    "win": false,
+    "lose": false,
+    "capped": true,
+    "score": 730.0,
+    "food": 0.5360169491525424,
+    "moves": 2000,
+    "ghosts": 1,
+    "ms_per_move": 1.788084039813839
+   },
+   {
+    "win": false,
+    "lose": false,
+    "capped": true,
+    "score": 1490.0,
+    "food": 0.6546610169491526,
+    "moves": 2000,
+    "ghosts": 2,
+    "ms_per_move": 1.206420836650068
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1683.0,
+    "food": 0.7055084745762712,
+    "moves": 1547,
+    "ghosts": 2,
+    "ms_per_move": 1.160583331156492
+   },
+   {
+    "win": false,
+    "lose": false,
+    "capped": true,
+    "score": 2220.0,
+    "food": 0.809322033898305,
+    "moves": 2000,
+    "ghosts": 2,
+    "ms_per_move": 2.2216100282530533
+   },
+   {
+    "win": false,
+    "lose": false,
+    "capped": true,
+    "score": 520.0,
+    "food": 0.4915254237288136,
+    "moves": 2000,
+    "ghosts": 1,
+    "ms_per_move": 1.8399708242650377
+   },
+   {
+    "win": false,
+    "lose": false,
+    "capped": true,
+    "score": 3100.0,
+    "food": 0.9533898305084746,
+    "moves": 2000,
+    "ghosts": 3,
+    "ms_per_move": 2.1480242135876324
+   },
+   {
+    "win": false,
+    "lose": false,
+    "capped": true,
+    "score": 680.0,
+    "food": 0.5254237288135594,
+    "moves": 2000,
+    "ghosts": 1,
+    "ms_per_move": 2.2951884695066838
+   },
+   {
+    "win": false,
+    "lose": false,
+    "capped": true,
+    "score": 2210.0,
+    "food": 0.7648305084745762,
+    "moves": 2000,
+    "ghosts": 3,
+    "ms_per_move": 2.0288229225261603
+   },
+   {
+    "win": false,
+    "lose": false,
+    "capped": true,
+    "score": 2010.0,
+    "food": 0.8495762711864406,
+    "moves": 2000,
+    "ghosts": 0,
+    "ms_per_move": 2.0621016644436168
+   },
+   {
+    "win": false,
+    "lose": false,
+    "capped": true,
+    "score": 1230.0,
+    "food": 0.6419491525423728,
+    "moves": 2000,
+    "ghosts": 1,
+    "ms_per_move": 2.4658185178705025
+   },
+   {
+    "win": false,
+    "lose": false,
+    "capped": true,
+    "score": 1160.0,
+    "food": 0.6271186440677966,
+    "moves": 2000,
+    "ghosts": 1,
+    "ms_per_move": 1.8483835885563167
+   },
+   {
+    "win": false,
+    "lose": false,
+    "capped": true,
+    "score": 1210.0,
+    "food": 0.6377118644067796,
+    "moves": 2000,
+    "ghosts": 1,
+    "ms_per_move": 1.7076144183374709
+   }
+  ],
+  "Reflex|directional": [
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 690.0,
+    "food": 0.25,
+    "moves": 190,
+    "ghosts": 1,
+    "ms_per_move": 2.066174047803016
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -34.0,
+    "food": 0.1292372881355932,
+    "moves": 144,
+    "ghosts": 0,
+    "ms_per_move": 2.7342573963930286
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 547.0,
+    "food": 0.163135593220339,
+    "moves": 123,
+    "ghosts": 2,
+    "ms_per_move": 2.123162535358054
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1745.0,
+    "food": 0.4703389830508475,
+    "moves": 375,
+    "ghosts": 2,
+    "ms_per_move": 1.3042810428111502
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1.0,
+    "food": 0.11864406779661017,
+    "moves": 59,
+    "ghosts": 0,
+    "ms_per_move": 1.388962223230056
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1090.0,
+    "food": 0.3474576271186441,
+    "moves": 250,
+    "ghosts": 1,
+    "ms_per_move": 1.3490001410245895
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1505.0,
+    "food": 0.4639830508474576,
+    "moves": 385,
+    "ghosts": 1,
+    "ms_per_move": 2.61897856820157
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 408.0,
+    "food": 0.2288135593220339,
+    "moves": 172,
+    "ghosts": 0,
+    "ms_per_move": 1.3168399035389167
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 67.0,
+    "food": 0.13771186440677965,
+    "moves": 83,
+    "ghosts": 0,
+    "ms_per_move": 2.7507896382917076
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 208.0,
+    "food": 0.1716101694915254,
+    "moves": 102,
+    "ghosts": 0,
+    "ms_per_move": 2.923991441539507
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -75.0,
+    "food": 0.1016949152542373,
+    "moves": 55,
+    "ghosts": 0,
+    "ms_per_move": 1.5063305089080874
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1983.0,
+    "food": 0.5211864406779662,
+    "moves": 377,
+    "ghosts": 2,
+    "ms_per_move": 1.9816655412579414
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -57.0,
+    "food": 0.2266949152542373,
+    "moves": 627,
+    "ghosts": 0,
+    "ms_per_move": 1.2522627356959033
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1431.0,
+    "food": 0.3919491525423729,
+    "moves": 319,
+    "ghosts": 2,
+    "ms_per_move": 2.12177600226946
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 840.0,
+    "food": 0.3389830508474576,
+    "moves": 260,
+    "ghosts": 0,
+    "ms_per_move": 2.6656318684287656
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 964.0,
+    "food": 0.22245762711864406,
+    "moves": 186,
+    "ghosts": 3,
+    "ms_per_move": 2.827551850068924
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1971.0,
+    "food": 0.5677966101694916,
+    "moves": 609,
+    "ghosts": 2,
+    "ms_per_move": 2.400450351493577
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 2302.0,
+    "food": 0.6864406779661016,
+    "moves": 438,
+    "ghosts": 0,
+    "ms_per_move": 2.5684341558252064
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1418.0,
+    "food": 0.461864406779661,
+    "moves": 662,
+    "ghosts": 2,
+    "ms_per_move": 2.5074525512586097
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 3357.0,
+    "food": 0.9470338983050848,
+    "moves": 1013,
+    "ghosts": 2,
+    "ms_per_move": 2.184806451298433
+   }
+  ],
+  "AlphaBeta|random": [
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 239.0,
+    "food": 0.1843220338983051,
+    "moves": 131,
+    "ghosts": 0,
+    "ms_per_move": 27.250274969175997
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 91.0,
+    "food": 0.13983050847457626,
+    "moves": 69,
+    "ghosts": 0,
+    "ms_per_move": 43.86842434768619
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -252.0,
+    "food": 0.07415254237288135,
+    "moves": 102,
+    "ghosts": 0,
+    "ms_per_move": 50.75174032319017
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 464.0,
+    "food": 0.1864406779661017,
+    "moves": 116,
+    "ghosts": 1,
+    "ms_per_move": 54.408960629722245
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -440.0,
+    "food": 0.07415254237288135,
+    "moves": 290,
+    "ghosts": 0,
+    "ms_per_move": 32.84178826233356
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 454.0,
+    "food": 0.1885593220338983,
+    "moves": 136,
+    "ghosts": 1,
+    "ms_per_move": 43.808370883412216
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -178.0,
+    "food": 0.125,
+    "moves": 268,
+    "ghosts": 0,
+    "ms_per_move": 38.88485655212452
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 289.0,
+    "food": 0.1843220338983051,
+    "moves": 281,
+    "ghosts": 1,
+    "ms_per_move": 26.51401982912827
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 160.0,
+    "food": 0.15677966101694915,
+    "moves": 80,
+    "ghosts": 0,
+    "ms_per_move": 27.685676761029754
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 213.0,
+    "food": 0.1843220338983051,
+    "moves": 157,
+    "ghosts": 0,
+    "ms_per_move": 54.89295084588526
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -264.0,
+    "food": 0.07415254237288135,
+    "moves": 114,
+    "ghosts": 0,
+    "ms_per_move": 44.42535169303147
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -33.0,
+    "food": 0.11440677966101695,
+    "moves": 73,
+    "ghosts": 0,
+    "ms_per_move": 39.49293801329762
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 104.0,
+    "food": 0.1864406779661017,
+    "moves": 276,
+    "ghosts": 0,
+    "ms_per_move": 56.08868126433083
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -31.0,
+    "food": 0.1843220338983051,
+    "moves": 401,
+    "ghosts": 0,
+    "ms_per_move": 47.17756570553456
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 69.0,
+    "food": 0.1906779661016949,
+    "moves": 331,
+    "ghosts": 0,
+    "ms_per_move": 39.34817107058809
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -500.0,
+    "food": 0.07415254237288135,
+    "moves": 350,
+    "ghosts": 0,
+    "ms_per_move": 55.86074825185018
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -131.0,
+    "food": 0.1843220338983051,
+    "moves": 501,
+    "ghosts": 0,
+    "ms_per_move": 48.328099422971945
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -98.0,
+    "food": 0.1864406779661017,
+    "moves": 478,
+    "ghosts": 0,
+    "ms_per_move": 58.86630348589176
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -215.0,
+    "food": 0.1864406779661017,
+    "moves": 595,
+    "ghosts": 0,
+    "ms_per_move": 62.00817570436605
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -804.0,
+    "food": 0.07415254237288135,
+    "moves": 654,
+    "ghosts": 0,
+    "ms_per_move": 71.6251021342577
+   }
+  ],
+  "AlphaBeta|directional": [
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 289.0,
+    "food": 0.1864406779661017,
+    "moves": 91,
+    "ghosts": 0,
+    "ms_per_move": 28.76854089061873
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 277.0,
+    "food": 0.1843220338983051,
+    "moves": 93,
+    "ghosts": 0,
+    "ms_per_move": 27.827020266383727
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -250.0,
+    "food": 0.07415254237288135,
+    "moves": 100,
+    "ghosts": 0,
+    "ms_per_move": 43.87396450183587
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 97.0,
+    "food": 0.1419491525423729,
+    "moves": 73,
+    "ghosts": 0,
+    "ms_per_move": 38.22278956107616
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 80.0,
+    "food": 0.13771186440677965,
+    "moves": 70,
+    "ghosts": 0,
+    "ms_per_move": 40.70279374219743
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 153.0,
+    "food": 0.15466101694915255,
+    "moves": 77,
+    "ghosts": 0,
+    "ms_per_move": 46.44587571587559
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -278.0,
+    "food": 0.07415254237288135,
+    "moves": 128,
+    "ghosts": 0,
+    "ms_per_move": 27.477250772108164
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 138.0,
+    "food": 0.1504237288135593,
+    "moves": 72,
+    "ghosts": 0,
+    "ms_per_move": 49.07823120851794
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 181.0,
+    "food": 0.16101694915254236,
+    "moves": 79,
+    "ghosts": 0,
+    "ms_per_move": 42.35498083473914
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 288.0,
+    "food": 0.1864406779661017,
+    "moves": 92,
+    "ghosts": 0,
+    "ms_per_move": 44.47511131444987
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -264.0,
+    "food": 0.07415254237288135,
+    "moves": 114,
+    "ghosts": 0,
+    "ms_per_move": 25.853781938949076
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -328.0,
+    "food": 0.07415254237288135,
+    "moves": 178,
+    "ghosts": 0,
+    "ms_per_move": 31.483290422043314
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 153.0,
+    "food": 0.15466101694915255,
+    "moves": 77,
+    "ghosts": 0,
+    "ms_per_move": 55.69075353295458
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 62.0,
+    "food": 0.13347457627118645,
+    "moves": 68,
+    "ghosts": 0,
+    "ms_per_move": 44.538812867198004
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 147.0,
+    "food": 0.15254237288135594,
+    "moves": 73,
+    "ghosts": 0,
+    "ms_per_move": 47.95778469917722
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 110.0,
+    "food": 0.1440677966101695,
+    "moves": 70,
+    "ghosts": 0,
+    "ms_per_move": 38.145104041489375
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -252.0,
+    "food": 0.07415254237288135,
+    "moves": 102,
+    "ghosts": 0,
+    "ms_per_move": 48.21754624415418
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 244.0,
+    "food": 0.1864406779661017,
+    "moves": 136,
+    "ghosts": 0,
+    "ms_per_move": 43.9754583143547
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -292.0,
+    "food": 0.07415254237288135,
+    "moves": 142,
+    "ghosts": 0,
+    "ms_per_move": 56.284692100926414
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -336.0,
+    "food": 0.07415254237288135,
+    "moves": 186,
+    "ghosts": 0,
+    "ms_per_move": 64.30629726955591
+   }
+  ],
+  "Expectimax|random": [
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 239.0,
+    "food": 0.1843220338983051,
+    "moves": 131,
+    "ghosts": 0,
+    "ms_per_move": 42.252742473430615
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -252.0,
+    "food": 0.07415254237288135,
+    "moves": 102,
+    "ghosts": 0,
+    "ms_per_move": 66.82727157792267
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 102.0,
+    "food": 0.1419491525423729,
+    "moves": 68,
+    "ghosts": 0,
+    "ms_per_move": 93.29886600137209
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 464.0,
+    "food": 0.1864406779661017,
+    "moves": 116,
+    "ghosts": 1,
+    "ms_per_move": 44.43173536254045
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -31.0,
+    "food": 0.1843220338983051,
+    "moves": 401,
+    "ghosts": 0,
+    "ms_per_move": 32.53364337604154
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 454.0,
+    "food": 0.1885593220338983,
+    "moves": 136,
+    "ghosts": 1,
+    "ms_per_move": 79.87181713992065
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -440.0,
+    "food": 0.07415254237288135,
+    "moves": 290,
+    "ghosts": 0,
+    "ms_per_move": 58.42518886252194
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 213.0,
+    "food": 0.1843220338983051,
+    "moves": 157,
+    "ghosts": 0,
+    "ms_per_move": 80.02974718655638
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 61.0,
+    "food": 0.1864406779661017,
+    "moves": 319,
+    "ghosts": 0,
+    "ms_per_move": 64.68375243478657
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 104.0,
+    "food": 0.1864406779661017,
+    "moves": 276,
+    "ghosts": 0,
+    "ms_per_move": 76.69680040967448
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 160.0,
+    "food": 0.15677966101694915,
+    "moves": 80,
+    "ghosts": 0,
+    "ms_per_move": 89.43901445200027
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 289.0,
+    "food": 0.1843220338983051,
+    "moves": 281,
+    "ghosts": 1,
+    "ms_per_move": 79.19790876595953
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 197.0,
+    "food": 0.19279661016949154,
+    "moves": 213,
+    "ghosts": 0,
+    "ms_per_move": 63.0223589526826
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -98.0,
+    "food": 0.1864406779661017,
+    "moves": 478,
+    "ghosts": 0,
+    "ms_per_move": 34.409646523805144
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -89.0,
+    "food": 0.19703389830508475,
+    "moves": 519,
+    "ghosts": 0,
+    "ms_per_move": 41.17135536387699
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -804.0,
+    "food": 0.07415254237288135,
+    "moves": 654,
+    "ghosts": 0,
+    "ms_per_move": 39.57811477228277
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 69.0,
+    "food": 0.1906779661016949,
+    "moves": 331,
+    "ghosts": 0,
+    "ms_per_move": 64.05796948978622
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -463.0,
+    "food": 0.0826271186440678,
+    "moves": 353,
+    "ghosts": 0,
+    "ms_per_move": 72.0619993483372
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -214.0,
+    "food": 0.1864406779661017,
+    "moves": 594,
+    "ghosts": 0,
+    "ms_per_move": 70.97711881440603
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -370.0,
+    "food": 0.19279661016949154,
+    "moves": 780,
+    "ghosts": 0,
+    "ms_per_move": 57.50243529574408
+   }
+  ],
+  "Expectimax|directional": [
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -250.0,
+    "food": 0.07415254237288135,
+    "moves": 100,
+    "ghosts": 0,
+    "ms_per_move": 58.70460846897913
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 289.0,
+    "food": 0.1864406779661017,
+    "moves": 91,
+    "ghosts": 0,
+    "ms_per_move": 80.31178731791123
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 277.0,
+    "food": 0.1843220338983051,
+    "moves": 93,
+    "ghosts": 0,
+    "ms_per_move": 94.04237753672835
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 80.0,
+    "food": 0.13771186440677965,
+    "moves": 70,
+    "ghosts": 0,
+    "ms_per_move": 70.67383595484509
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 98.0,
+    "food": 0.1419491525423729,
+    "moves": 72,
+    "ghosts": 0,
+    "ms_per_move": 79.81469875125589
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 153.0,
+    "food": 0.15466101694915255,
+    "moves": 77,
+    "ghosts": 0,
+    "ms_per_move": 85.12119172661045
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 182.0,
+    "food": 0.16101694915254236,
+    "moves": 78,
+    "ghosts": 0,
+    "ms_per_move": 42.048291112176884
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -264.0,
+    "food": 0.07415254237288135,
+    "moves": 114,
+    "ghosts": 0,
+    "ms_per_move": 36.02598482674487
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 138.0,
+    "food": 0.1504237288135593,
+    "moves": 72,
+    "ghosts": 0,
+    "ms_per_move": 95.04034988761607
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -278.0,
+    "food": 0.07415254237288135,
+    "moves": 128,
+    "ghosts": 0,
+    "ms_per_move": 69.57804856483563
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -252.0,
+    "food": 0.07415254237288135,
+    "moves": 102,
+    "ghosts": 0,
+    "ms_per_move": 34.38601983276278
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 153.0,
+    "food": 0.15466101694915255,
+    "moves": 77,
+    "ghosts": 0,
+    "ms_per_move": 78.62956332596164
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 288.0,
+    "food": 0.1864406779661017,
+    "moves": 92,
+    "ghosts": 0,
+    "ms_per_move": 91.28429839145848
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -292.0,
+    "food": 0.07415254237288135,
+    "moves": 142,
+    "ghosts": 0,
+    "ms_per_move": 43.42292204112287
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 53.0,
+    "food": 0.13135593220338984,
+    "moves": 67,
+    "ghosts": 0,
+    "ms_per_move": 98.04642219409179
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 111.0,
+    "food": 0.1440677966101695,
+    "moves": 69,
+    "ghosts": 0,
+    "ms_per_move": 102.62930095895949
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 110.0,
+    "food": 0.1440677966101695,
+    "moves": 70,
+    "ghosts": 0,
+    "ms_per_move": 95.38741278686628
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 244.0,
+    "food": 0.1864406779661017,
+    "moves": 136,
+    "ghosts": 0,
+    "ms_per_move": 71.54144643915488
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -328.0,
+    "food": 0.07415254237288135,
+    "moves": 178,
+    "ghosts": 0,
+    "ms_per_move": 78.08001113602933
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -336.0,
+    "food": 0.07415254237288135,
+    "moves": 186,
+    "ghosts": 0,
+    "ms_per_move": 79.35162263287741
+   }
+  ],
+  "ExpectimaxMaze|random": [
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 449.0,
+    "food": 0.2266949152542373,
+    "moves": 121,
+    "ghosts": 0,
+    "ms_per_move": 36.59731674432362
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 569.0,
+    "food": 0.2076271186440678,
+    "moves": 111,
+    "ghosts": 1,
+    "ms_per_move": 72.44530416262621
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 180.0,
+    "food": 0.163135593220339,
+    "moves": 90,
+    "ghosts": 0,
+    "ms_per_move": 101.29544754422062
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 410.0,
+    "food": 0.22033898305084745,
+    "moves": 130,
+    "ghosts": 0,
+    "ms_per_move": 49.97581385474545
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1325.0,
+    "food": 0.4385593220338983,
+    "moves": 245,
+    "ghosts": 0,
+    "ms_per_move": 40.444720404849825
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 348.0,
+    "food": 0.2055084745762712,
+    "moves": 122,
+    "ghosts": 0,
+    "ms_per_move": 96.85860329582432
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 27.0,
+    "food": 0.125,
+    "moves": 63,
+    "ghosts": 0,
+    "ms_per_move": 89.22047968233183
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 519.0,
+    "food": 0.2457627118644068,
+    "moves": 141,
+    "ghosts": 0,
+    "ms_per_move": 85.8028470202108
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 527.0,
+    "food": 0.19915254237288135,
+    "moves": 113,
+    "ghosts": 1,
+    "ms_per_move": 96.96079339019221
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 582.0,
+    "food": 0.2627118644067797,
+    "moves": 158,
+    "ghosts": 0,
+    "ms_per_move": 81.35273191772838
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 655.0,
+    "food": 0.2775423728813559,
+    "moves": 155,
+    "ghosts": 0,
+    "ms_per_move": 86.39761755475774
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1298.0,
+    "food": 0.3834745762711864,
+    "moves": 212,
+    "ghosts": 1,
+    "ms_per_move": 69.29539466460174
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1794.0,
+    "food": 0.4555084745762712,
+    "moves": 256,
+    "ghosts": 2,
+    "ms_per_move": 62.80688153481151
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1803.0,
+    "food": 0.5042372881355932,
+    "moves": 277,
+    "ghosts": 1,
+    "ms_per_move": 65.64734727810372
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 2293.0,
+    "food": 0.5826271186440678,
+    "moves": 357,
+    "ghosts": 2,
+    "ms_per_move": 69.7215812989049
+   },
+   {
+    "win": true,
+    "lose": false,
+    "capped": false,
+    "score": 5034.0,
+    "food": 1.0,
+    "moves": 786,
+    "ghosts": 3,
+    "ms_per_move": 39.141791750710695
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 2409.0,
+    "food": 0.5550847457627118,
+    "moves": 311,
+    "ghosts": 3,
+    "ms_per_move": 70.53425234068301
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 2298.0,
+    "food": 0.6313559322033898,
+    "moves": 382,
+    "ghosts": 1,
+    "ms_per_move": 58.64756516926356
+   },
+   {
+    "win": true,
+    "lose": false,
+    "capped": false,
+    "score": 4844.0,
+    "food": 1.0,
+    "moves": 776,
+    "ghosts": 2,
+    "ms_per_move": 38.56810740909008
+   },
+   {
+    "win": true,
+    "lose": false,
+    "capped": false,
+    "score": 5224.0,
+    "food": 1.0,
+    "moves": 796,
+    "ghosts": 4,
+    "ms_per_move": 46.65559117389631
+   }
+  ],
+  "ExpectimaxMaze|directional": [
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 188.0,
+    "food": 0.163135593220339,
+    "moves": 82,
+    "ghosts": 0,
+    "ms_per_move": 73.88494805065154
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 134.0,
+    "food": 0.1504237288135593,
+    "moves": 76,
+    "ghosts": 0,
+    "ms_per_move": 67.57009007752028
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 215.0,
+    "food": 0.1694915254237288,
+    "moves": 85,
+    "ghosts": 0,
+    "ms_per_move": 115.16907633083653
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 679.0,
+    "food": 0.1885593220338983,
+    "moves": 111,
+    "ghosts": 2,
+    "ms_per_move": 77.60045876588069
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 98.0,
+    "food": 0.1419491525423729,
+    "moves": 72,
+    "ghosts": 0,
+    "ms_per_move": 73.42236612708399
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1089.0,
+    "food": 0.3813559322033898,
+    "moves": 211,
+    "ghosts": 0,
+    "ms_per_move": 58.30027623683042
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 982.0,
+    "food": 0.2605932203389831,
+    "moves": 148,
+    "ghosts": 2,
+    "ms_per_move": 52.55328896011043
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 312.0,
+    "food": 0.19279661016949154,
+    "moves": 98,
+    "ghosts": 0,
+    "ms_per_move": 83.08780217384064
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 350.0,
+    "food": 0.20127118644067796,
+    "moves": 100,
+    "ghosts": 0,
+    "ms_per_move": 86.09208230103832
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 135.0,
+    "food": 0.1504237288135593,
+    "moves": 75,
+    "ghosts": 0,
+    "ms_per_move": 79.8446733597666
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 278.0,
+    "food": 0.1843220338983051,
+    "moves": 92,
+    "ghosts": 0,
+    "ms_per_move": 87.7092309013318
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 45.0,
+    "food": 0.1292372881355932,
+    "moves": 65,
+    "ghosts": 0,
+    "ms_per_move": 82.75429467590024
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 610.0,
+    "food": 0.2669491525423729,
+    "moves": 150,
+    "ghosts": 0,
+    "ms_per_move": 75.00178285990842
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 129.0,
+    "food": 0.1504237288135593,
+    "moves": 81,
+    "ghosts": 0,
+    "ms_per_move": 72.22724814912202
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 107.0,
+    "food": 0.1440677966101695,
+    "moves": 73,
+    "ghosts": 0,
+    "ms_per_move": 60.44798975129459
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 595.0,
+    "food": 0.2648305084745763,
+    "moves": 155,
+    "ghosts": 0,
+    "ms_per_move": 71.27074643935738
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 496.0,
+    "food": 0.1906779661016949,
+    "moves": 104,
+    "ghosts": 1,
+    "ms_per_move": 57.47164233476864
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 893.0,
+    "food": 0.2860169491525424,
+    "moves": 157,
+    "ghosts": 1,
+    "ms_per_move": 37.251759228551656
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1103.0,
+    "food": 0.3855932203389831,
+    "moves": 217,
+    "ghosts": 0,
+    "ms_per_move": 45.93020942907626
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1399.0,
+    "food": 0.4067796610169492,
+    "moves": 221,
+    "ghosts": 1,
+    "ms_per_move": 48.673719267268154
+   }
+  ],
+  "TabularQ|random": [
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -343.0,
+    "food": 0.07838983050847458,
+    "moves": 213,
+    "ghosts": 0,
+    "ms_per_move": 0.660922704182539
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -405.0,
+    "food": 0.02754237288135593,
+    "moves": 35,
+    "ghosts": 0,
+    "ms_per_move": 0.6471028002644225
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -414.0,
+    "food": 0.023305084745762712,
+    "moves": 24,
+    "ghosts": 0,
+    "ms_per_move": 0.6303691710248435
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -542.0,
+    "food": 0.057203389830508475,
+    "moves": 312,
+    "ghosts": 0,
+    "ms_per_move": 0.6669697404737609
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -488.0,
+    "food": 0.025423728813559324,
+    "moves": 108,
+    "ghosts": 0,
+    "ms_per_move": 0.6254328335570688
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -430.0,
+    "food": 0.029661016949152543,
+    "moves": 70,
+    "ghosts": 0,
+    "ms_per_move": 0.6727254716679454
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -437.0,
+    "food": 0.07415254237288135,
+    "moves": 287,
+    "ghosts": 0,
+    "ms_per_move": 0.664409151047676
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -383.0,
+    "food": 0.03389830508474576,
+    "moves": 43,
+    "ghosts": 0,
+    "ms_per_move": 0.6621046029681037
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -460.0,
+    "food": 0.036016949152542374,
+    "moves": 130,
+    "ghosts": 0,
+    "ms_per_move": 0.6382565152867196
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -772.0,
+    "food": 0.057203389830508475,
+    "moves": 542,
+    "ghosts": 0,
+    "ms_per_move": 0.6760927452018478
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -511.0,
+    "food": 0.01059322033898305,
+    "moves": 61,
+    "ghosts": 0,
+    "ms_per_move": 0.6651540819295971
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -399.0,
+    "food": 0.059322033898305086,
+    "moves": 179,
+    "ghosts": 0,
+    "ms_per_move": 0.6698795913604176
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -909.0,
+    "food": 0.0423728813559322,
+    "moves": 609,
+    "ghosts": 0,
+    "ms_per_move": 0.6625923624492368
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -449.0,
+    "food": 0.019067796610169493,
+    "moves": 39,
+    "ghosts": 0,
+    "ms_per_move": 0.6782002806759033
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -219.0,
+    "food": 0.1419491525423729,
+    "moves": 389,
+    "ghosts": 0,
+    "ms_per_move": 0.6926372645190584
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -432.0,
+    "food": 0.0635593220338983,
+    "moves": 232,
+    "ghosts": 0,
+    "ms_per_move": 0.7021458723415732
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -581.0,
+    "food": 0.023305084745762712,
+    "moves": 191,
+    "ghosts": 0,
+    "ms_per_move": 0.6537365820685508
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -452.0,
+    "food": 0.038135593220338986,
+    "moves": 132,
+    "ghosts": 0,
+    "ms_per_move": 0.6729135744866322
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -488.0,
+    "food": 0.0211864406779661,
+    "moves": 88,
+    "ghosts": 0,
+    "ms_per_move": 0.654760000377957
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -513.0,
+    "food": 0.014830508474576272,
+    "moves": 83,
+    "ghosts": 0,
+    "ms_per_move": 0.6641502988648164
+   }
+  ],
+  "TabularQ|directional": [
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -492.0,
+    "food": 0.014830508474576272,
+    "moves": 62,
+    "ghosts": 0,
+    "ms_per_move": 1.5262066782827701
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -404.0,
+    "food": 0.02754237288135593,
+    "moves": 34,
+    "ghosts": 0,
+    "ms_per_move": 1.5700310340274453
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -391.0,
+    "food": 0.029661016949152543,
+    "moves": 31,
+    "ghosts": 0,
+    "ms_per_move": 1.5599229673464452
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -476.0,
+    "food": 0.023305084745762712,
+    "moves": 86,
+    "ghosts": 0,
+    "ms_per_move": 1.5371353602372544
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -472.0,
+    "food": 0.012711864406779662,
+    "moves": 32,
+    "ghosts": 0,
+    "ms_per_move": 1.5318716286856215
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -432.0,
+    "food": 0.023305084745762712,
+    "moves": 42,
+    "ghosts": 0,
+    "ms_per_move": 1.5717699286705327
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -489.0,
+    "food": 0.0211864406779661,
+    "moves": 89,
+    "ghosts": 0,
+    "ms_per_move": 1.514591370824348
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -466.0,
+    "food": 0.019067796610169493,
+    "moves": 56,
+    "ghosts": 0,
+    "ms_per_move": 1.5226358549885586
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -405.0,
+    "food": 0.02754237288135593,
+    "moves": 35,
+    "ghosts": 0,
+    "ms_per_move": 1.5215354838541575
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -423.0,
+    "food": 0.02754237288135593,
+    "moves": 53,
+    "ghosts": 0,
+    "ms_per_move": 1.546561490098577
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -507.0,
+    "food": 0.00847457627118644,
+    "moves": 47,
+    "ghosts": 0,
+    "ms_per_move": 1.519288893719699
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -341.0,
+    "food": 0.05296610169491525,
+    "moves": 91,
+    "ghosts": 0,
+    "ms_per_move": 1.5463014510664883
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -455.0,
+    "food": 0.0211864406779661,
+    "moves": 55,
+    "ghosts": 0,
+    "ms_per_move": 1.4931087630843236
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -330.0,
+    "food": 0.046610169491525424,
+    "moves": 50,
+    "ghosts": 0,
+    "ms_per_move": 1.583767238771543
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -461.0,
+    "food": 0.019067796610169493,
+    "moves": 51,
+    "ghosts": 0,
+    "ms_per_move": 1.5177017473843972
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -437.0,
+    "food": 0.0211864406779661,
+    "moves": 37,
+    "ghosts": 0,
+    "ms_per_move": 1.5607087037563827
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -443.0,
+    "food": 0.019067796610169493,
+    "moves": 33,
+    "ghosts": 0,
+    "ms_per_move": 1.585161665306342
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -468.0,
+    "food": 0.014830508474576272,
+    "moves": 38,
+    "ghosts": 0,
+    "ms_per_move": 1.5626690759458335
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -471.0,
+    "food": 0.01694915254237288,
+    "moves": 51,
+    "ghosts": 0,
+    "ms_per_move": 1.5238784310663596
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -452.0,
+    "food": 0.01694915254237288,
+    "moves": 32,
+    "ghosts": 0,
+    "ms_per_move": 1.5509890326939058
+   }
+  ],
+  "ApproxQ|random": [
+   {
+    "win": true,
+    "lose": false,
+    "capped": false,
+    "score": 4488.0,
+    "food": 1.0,
+    "moves": 732,
+    "ghosts": 0,
+    "ms_per_move": 0.2738506937319352
+   },
+   {
+    "win": true,
+    "lose": false,
+    "capped": false,
+    "score": 4467.0,
+    "food": 1.0,
+    "moves": 753,
+    "ghosts": 0,
+    "ms_per_move": 0.24499517704229085
+   },
+   {
+    "win": true,
+    "lose": false,
+    "capped": false,
+    "score": 4465.0,
+    "food": 1.0,
+    "moves": 755,
+    "ghosts": 0,
+    "ms_per_move": 0.3360497754835061
+   },
+   {
+    "win": true,
+    "lose": false,
+    "capped": false,
+    "score": 4431.0,
+    "food": 1.0,
+    "moves": 789,
+    "ghosts": 0,
+    "ms_per_move": 0.2460260848964462
+   },
+   {
+    "win": true,
+    "lose": false,
+    "capped": false,
+    "score": 4539.0,
+    "food": 1.0,
+    "moves": 681,
+    "ghosts": 0,
+    "ms_per_move": 0.21428771959939116
+   },
+   {
+    "win": true,
+    "lose": false,
+    "capped": false,
+    "score": 4547.0,
+    "food": 1.0,
+    "moves": 673,
+    "ghosts": 0,
+    "ms_per_move": 0.12761150814736757
+   },
+   {
+    "win": true,
+    "lose": false,
+    "capped": false,
+    "score": 4522.0,
+    "food": 1.0,
+    "moves": 698,
+    "ghosts": 0,
+    "ms_per_move": 0.17429387812665462
+   },
+   {
+    "win": true,
+    "lose": false,
+    "capped": false,
+    "score": 4494.0,
+    "food": 1.0,
+    "moves": 726,
+    "ghosts": 0,
+    "ms_per_move": 0.2772286656176666
+   },
+   {
+    "win": true,
+    "lose": false,
+    "capped": false,
+    "score": 4516.0,
+    "food": 1.0,
+    "moves": 704,
+    "ghosts": 0,
+    "ms_per_move": 0.15292901095811184
+   },
+   {
+    "win": true,
+    "lose": false,
+    "capped": false,
+    "score": 4531.0,
+    "food": 1.0,
+    "moves": 689,
+    "ghosts": 0,
+    "ms_per_move": 0.16487901198207325
+   },
+   {
+    "win": true,
+    "lose": false,
+    "capped": false,
+    "score": 4515.0,
+    "food": 1.0,
+    "moves": 705,
+    "ghosts": 0,
+    "ms_per_move": 0.3454694966950738
+   },
+   {
+    "win": true,
+    "lose": false,
+    "capped": false,
+    "score": 4498.0,
+    "food": 1.0,
+    "moves": 722,
+    "ghosts": 0,
+    "ms_per_move": 0.22041607221493037
+   },
+   {
+    "win": true,
+    "lose": false,
+    "capped": false,
+    "score": 4508.0,
+    "food": 1.0,
+    "moves": 712,
+    "ghosts": 0,
+    "ms_per_move": 0.15194610141713455
+   },
+   {
+    "win": true,
+    "lose": false,
+    "capped": false,
+    "score": 4547.0,
+    "food": 1.0,
+    "moves": 673,
+    "ghosts": 0,
+    "ms_per_move": 0.13823009785928972
+   },
+   {
+    "win": true,
+    "lose": false,
+    "capped": false,
+    "score": 4504.0,
+    "food": 1.0,
+    "moves": 716,
+    "ghosts": 0,
+    "ms_per_move": 0.17753288614194238
+   },
+   {
+    "win": true,
+    "lose": false,
+    "capped": false,
+    "score": 4493.0,
+    "food": 1.0,
+    "moves": 727,
+    "ghosts": 0,
+    "ms_per_move": 0.2041920688723251
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 262.0,
+    "food": 0.18220338983050846,
+    "moves": 98,
+    "ghosts": 0,
+    "ms_per_move": 0.07965857173762836
+   },
+   {
+    "win": true,
+    "lose": false,
+    "capped": false,
+    "score": 4486.0,
+    "food": 1.0,
+    "moves": 734,
+    "ghosts": 0,
+    "ms_per_move": 0.15910734246137276
+   },
+   {
+    "win": true,
+    "lose": false,
+    "capped": false,
+    "score": 4551.0,
+    "food": 1.0,
+    "moves": 669,
+    "ghosts": 0,
+    "ms_per_move": 0.11448462082870772
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1405.0,
+    "food": 0.4661016949152542,
+    "moves": 295,
+    "ghosts": 0,
+    "ms_per_move": 0.1347594053910698
+   }
+  ],
+  "ApproxQ|directional": [
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1764.0,
+    "food": 0.5614406779661016,
+    "moves": 386,
+    "ghosts": 0,
+    "ms_per_move": 0.3435924927308345
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1242.0,
+    "food": 0.4194915254237288,
+    "moves": 238,
+    "ghosts": 0,
+    "ms_per_move": 0.3034626180208249
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1028.0,
+    "food": 0.3644067796610169,
+    "moves": 192,
+    "ghosts": 0,
+    "ms_per_move": 0.25749636931019876
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 804.0,
+    "food": 0.3114406779661017,
+    "moves": 166,
+    "ghosts": 0,
+    "ms_per_move": 0.25765715568068337
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 820.0,
+    "food": 0.3220338983050847,
+    "moves": 200,
+    "ghosts": 0,
+    "ms_per_move": 0.2913054442615248
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1563.0,
+    "food": 0.5042372881355932,
+    "moves": 317,
+    "ghosts": 0,
+    "ms_per_move": 0.3109003617523726
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 160.0,
+    "food": 0.15677966101694915,
+    "moves": 80,
+    "ghosts": 0,
+    "ms_per_move": 0.24319902586285025
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": -213.0,
+    "food": 0.06779661016949153,
+    "moves": 33,
+    "ghosts": 0,
+    "ms_per_move": 0.2381774547481627
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 754.0,
+    "food": 0.298728813559322,
+    "moves": 156,
+    "ghosts": 0,
+    "ms_per_move": 0.25664959628976736
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 3449.0,
+    "food": 0.9809322033898306,
+    "moves": 681,
+    "ghosts": 0,
+    "ms_per_move": 0.611210208450801
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 2806.0,
+    "food": 0.8305084745762712,
+    "moves": 614,
+    "ghosts": 0,
+    "ms_per_move": 0.4915786699083988
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1350.0,
+    "food": 0.4576271186440678,
+    "moves": 310,
+    "ghosts": 0,
+    "ms_per_move": 0.41926880320158577
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 628.0,
+    "food": 0.2690677966101695,
+    "moves": 142,
+    "ghosts": 0,
+    "ms_per_move": 0.26129916844017226
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 440.0,
+    "food": 0.2266949152542373,
+    "moves": 130,
+    "ghosts": 0,
+    "ms_per_move": 0.2750188371954629
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 598.0,
+    "food": 0.2690677966101695,
+    "moves": 172,
+    "ghosts": 0,
+    "ms_per_move": 0.2972658362840627
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 3234.0,
+    "food": 0.9364406779661016,
+    "moves": 686,
+    "ghosts": 0,
+    "ms_per_move": 0.4913591438753031
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 24.0,
+    "food": 0.1271186440677966,
+    "moves": 76,
+    "ghosts": 0,
+    "ms_per_move": 0.2736690910655613
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 1433.0,
+    "food": 0.4703389830508475,
+    "moves": 287,
+    "ghosts": 0,
+    "ms_per_move": 0.29221723664986804
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 544.0,
+    "food": 0.2478813559322034,
+    "moves": 126,
+    "ghosts": 0,
+    "ms_per_move": 0.25001203984073883
+   },
+   {
+    "win": false,
+    "lose": true,
+    "capped": false,
+    "score": 434.0,
+    "food": 0.2266949152542373,
+    "moves": 136,
+    "ghosts": 0,
+    "ms_per_move": 0.2837002573548542
+   }
+  ]
+ },
+ "curves": {
+  "TabularQ|random": [
+   {
+    "win": false,
+    "score": -496.0,
+    "food": 0.03177966101694915
+   },
+   {
+    "win": false,
+    "score": -404.0,
+    "food": 0.0423728813559322
+   },
+   {
+    "win": false,
+    "score": -635.0,
+    "food": 0.07415254237288135
+   },
+   {
+    "win": false,
+    "score": -379.0,
+    "food": 0.038135593220338986
+   },
+   {
+    "win": false,
+    "score": -480.0,
+    "food": 0.019067796610169493
+   },
+   {
+    "win": false,
+    "score": -566.0,
+    "food": 0.025423728813559324
+   },
+   {
+    "win": false,
+    "score": -483.0,
+    "food": 0.036016949152542374
+   },
+   {
+    "win": false,
+    "score": -409.0,
+    "food": 0.09110169491525423
+   },
+   {
+    "win": false,
+    "score": -511.0,
+    "food": 0.01694915254237288
+   },
+   {
+    "win": false,
+    "score": -496.0,
+    "food": 0.00847457627118644
+   },
+   {
+    "win": false,
+    "score": -752.0,
+    "food": 0.09110169491525423
+   },
+   {
+    "win": false,
+    "score": -489.0,
+    "food": 0.025423728813559324
+   },
+   {
+    "win": false,
+    "score": -493.0,
+    "food": 0.00847457627118644
+   },
+   {
+    "win": false,
+    "score": -489.0,
+    "food": 0.0211864406779661
+   },
+   {
+    "win": false,
+    "score": -462.0,
+    "food": 0.019067796610169493
+   },
+   {
+    "win": false,
+    "score": -481.0,
+    "food": 0.01694915254237288
+   },
+   {
+    "win": false,
+    "score": -451.0,
+    "food": 0.03177966101694915
+   },
+   {
+    "win": false,
+    "score": -505.0,
+    "food": 0.023305084745762712
+   },
+   {
+    "win": false,
+    "score": -494.0,
+    "food": 0.00847457627118644
+   },
+   {
+    "win": false,
+    "score": -520.0,
+    "food": 0.0211864406779661
+   },
+   {
+    "win": false,
+    "score": -385.0,
+    "food": 0.05296610169491525
+   },
+   {
+    "win": false,
+    "score": -436.0,
+    "food": 0.15889830508474576
+   },
+   {
+    "win": false,
+    "score": -190.0,
+    "food": 0.1885593220338983
+   },
+   {
+    "win": false,
+    "score": -492.0,
+    "food": 0.012711864406779662
+   },
+   {
+    "win": false,
+    "score": -410.0,
+    "food": 0.10805084745762712
+   },
+   {
+    "win": false,
+    "score": -470.0,
+    "food": 0.012711864406779662
+   },
+   {
+    "win": false,
+    "score": -486.0,
+    "food": 0.01059322033898305
+   },
+   {
+    "win": false,
+    "score": -484.0,
+    "food": 0.01694915254237288
+   },
+   {
+    "win": false,
+    "score": -444.0,
+    "food": 0.036016949152542374
+   },
+   {
+    "win": false,
+    "score": -231.0,
+    "food": 0.1652542372881356
+   },
+   {
+    "win": false,
+    "score": -480.0,
+    "food": 0.014830508474576272
+   },
+   {
+    "win": false,
+    "score": -424.0,
+    "food": 0.023305084745762712
+   },
+   {
+    "win": false,
+    "score": -495.0,
+    "food": 0.025423728813559324
+   },
+   {
+    "win": false,
+    "score": -567.0,
+    "food": 0.01694915254237288
+   },
+   {
+    "win": false,
+    "score": -409.0,
+    "food": 0.0847457627118644
+   },
+   {
+    "win": false,
+    "score": -463.0,
+    "food": 0.029661016949152543
+   },
+   {
+    "win": false,
+    "score": -498.0,
+    "food": 0.01059322033898305
+   },
+   {
+    "win": false,
+    "score": -486.0,
+    "food": 0.0211864406779661
+   },
+   {
+    "win": false,
+    "score": -426.0,
+    "food": 0.025423728813559324
+   },
+   {
+    "win": false,
+    "score": -444.0,
+    "food": 0.023305084745762712
+   },
+   {
+    "win": false,
+    "score": -434.0,
+    "food": 0.023305084745762712
+   },
+   {
+    "win": false,
+    "score": -487.0,
+    "food": 0.01694915254237288
+   },
+   {
+    "win": false,
+    "score": -441.0,
+    "food": 0.0423728813559322
+   },
+   {
+    "win": false,
+    "score": -442.0,
+    "food": 0.036016949152542374
+   },
+   {
+    "win": false,
+    "score": -194.0,
+    "food": 0.11016949152542373
+   },
+   {
+    "win": false,
+    "score": -480.0,
+    "food": 0.0423728813559322
+   },
+   {
+    "win": false,
+    "score": -516.0,
+    "food": 0.0423728813559322
+   },
+   {
+    "win": false,
+    "score": -467.0,
+    "food": 0.019067796610169493
+   },
+   {
+    "win": false,
+    "score": -655.0,
+    "food": 0.046610169491525424
+   },
+   {
+    "win": false,
+    "score": -447.0,
+    "food": 0.023305084745762712
+   },
+   {
+    "win": false,
+    "score": -373.0,
+    "food": 0.05508474576271186
+   },
+   {
+    "win": false,
+    "score": -427.0,
+    "food": 0.05084745762711865
+   },
+   {
+    "win": false,
+    "score": -445.0,
+    "food": 0.0826271186440678
+   },
+   {
+    "win": false,
+    "score": -330.0,
+    "food": 0.0847457627118644
+   },
+   {
+    "win": false,
+    "score": -503.0,
+    "food": 0.025423728813559324
+   },
+   {
+    "win": false,
+    "score": -586.0,
+    "food": 0.15677966101694915
+   },
+   {
+    "win": false,
+    "score": -400.0,
+    "food": 0.046610169491525424
+   },
+   {
+    "win": false,
+    "score": -502.0,
+    "food": 0.04449152542372881
+   },
+   {
+    "win": false,
+    "score": -647.0,
+    "food": 0.13983050847457626
+   },
+   {
+    "win": false,
+    "score": -463.0,
+    "food": 0.038135593220338986
+   },
+   {
+    "win": false,
+    "score": -460.0,
+    "food": 0.01694915254237288
+   },
+   {
+    "win": false,
+    "score": -602.0,
+    "food": 0.11652542372881355
+   },
+   {
+    "win": false,
+    "score": -491.0,
+    "food": 0.057203389830508475
+   },
+   {
+    "win": false,
+    "score": -511.0,
+    "food": 0.046610169491525424
+   },
+   {
+    "win": false,
+    "score": -319.0,
+    "food": 0.08898305084745763
+   },
+   {
+    "win": false,
+    "score": -619.0,
+    "food": 0.0826271186440678
+   },
+   {
+    "win": false,
+    "score": -371.0,
+    "food": 0.04025423728813559
+   },
+   {
+    "win": false,
+    "score": -507.0,
+    "food": 0.0211864406779661
+   },
+   {
+    "win": false,
+    "score": -639.0,
+    "food": 0.0826271186440678
+   },
+   {
+    "win": false,
+    "score": -465.0,
+    "food": 0.0635593220338983
+   },
+   {
+    "win": false,
+    "score": -405.0,
+    "food": 0.04025423728813559
+   },
+   {
+    "win": false,
+    "score": -239.0,
+    "food": 0.11864406779661017
+   },
+   {
+    "win": false,
+    "score": -415.0,
+    "food": 0.023305084745762712
+   },
+   {
+    "win": false,
+    "score": -517.0,
+    "food": 0.10805084745762712
+   },
+   {
+    "win": false,
+    "score": -438.0,
+    "food": 0.019067796610169493
+   },
+   {
+    "win": false,
+    "score": -545.0,
+    "food": 0.03389830508474576
+   },
+   {
+    "win": false,
+    "score": -491.0,
+    "food": 0.01694915254237288
+   },
+   {
+    "win": false,
+    "score": -459.0,
+    "food": 0.0211864406779661
+   },
+   {
+    "win": false,
+    "score": -451.0,
+    "food": 0.0211864406779661
+   },
+   {
+    "win": false,
+    "score": -921.0,
+    "food": 0.046610169491525424
+   },
+   {
+    "win": false,
+    "score": -453.0,
+    "food": 0.05296610169491525
+   },
+   {
+    "win": false,
+    "score": -394.0,
+    "food": 0.06991525423728813
+   },
+   {
+    "win": false,
+    "score": -603.0,
+    "food": 0.09745762711864407
+   },
+   {
+    "win": false,
+    "score": -289.0,
+    "food": 0.08898305084745763
+   },
+   {
+    "win": false,
+    "score": -537.0,
+    "food": 0.0635593220338983
+   },
+   {
+    "win": false,
+    "score": -409.0,
+    "food": 0.036016949152542374
+   },
+   {
+    "win": false,
+    "score": -544.0,
+    "food": 0.04449152542372881
+   },
+   {
+    "win": false,
+    "score": -485.0,
+    "food": 0.01059322033898305
+   },
+   {
+    "win": false,
+    "score": -592.0,
+    "food": 0.03389830508474576
+   },
+   {
+    "win": false,
+    "score": -533.0,
+    "food": 0.09957627118644068
+   },
+   {
+    "win": false,
+    "score": -482.0,
+    "food": 0.01059322033898305
+   },
+   {
+    "win": false,
+    "score": -483.0,
+    "food": 0.014830508474576272
+   },
+   {
+    "win": false,
+    "score": -622.0,
+    "food": 0.03177966101694915
+   },
+   {
+    "win": false,
+    "score": -461.0,
+    "food": 0.06991525423728813
+   },
+   {
+    "win": false,
+    "score": -493.0,
+    "food": 0.014830508474576272
+   },
+   {
+    "win": false,
+    "score": -400.0,
+    "food": 0.029661016949152543
+   },
+   {
+    "win": false,
+    "score": -494.0,
+    "food": 0.00847457627118644
+   },
+   {
+    "win": false,
+    "score": -571.0,
+    "food": 0.048728813559322036
+   },
+   {
+    "win": false,
+    "score": -484.0,
+    "food": 0.01694915254237288
+   },
+   {
+    "win": false,
+    "score": -551.0,
+    "food": 0.036016949152542374
+   }
+  ],
+  "TabularQ|directional": [
+   {
+    "win": false,
+    "score": -460.0,
+    "food": 0.01694915254237288
+   },
+   {
+    "win": false,
+    "score": -438.0,
+    "food": 0.023305084745762712
+   },
+   {
+    "win": false,
+    "score": -480.0,
+    "food": 0.012711864406779662
+   },
+   {
+    "win": false,
+    "score": -309.0,
+    "food": 0.06991525423728813
+   },
+   {
+    "win": false,
+    "score": -481.0,
+    "food": 0.01059322033898305
+   },
+   {
+    "win": false,
+    "score": -443.0,
+    "food": 0.025423728813559324
+   },
+   {
+    "win": false,
+    "score": -474.0,
+    "food": 0.01694915254237288
+   },
+   {
+    "win": false,
+    "score": -513.0,
+    "food": 0.01059322033898305
+   },
+   {
+    "win": false,
+    "score": -495.0,
+    "food": 0.01694915254237288
+   },
+   {
+    "win": false,
+    "score": -496.0,
+    "food": 0.00847457627118644
+   },
+   {
+    "win": false,
+    "score": -428.0,
+    "food": 0.025423728813559324
+   },
+   {
+    "win": false,
+    "score": -450.0,
+    "food": 0.025423728813559324
+   },
+   {
+    "win": false,
+    "score": -993.0,
+    "food": 0.00847457627118644
+   },
+   {
+    "win": false,
+    "score": -494.0,
+    "food": 0.00847457627118644
+   },
+   {
+    "win": false,
+    "score": -451.0,
+    "food": 0.019067796610169493
+   },
+   {
+    "win": false,
+    "score": -450.0,
+    "food": 0.019067796610169493
+   },
+   {
+    "win": false,
+    "score": -504.0,
+    "food": 0.006355932203389831
+   },
+   {
+    "win": false,
+    "score": -437.0,
+    "food": 0.0211864406779661
+   },
+   {
+    "win": false,
+    "score": -494.0,
+    "food": 0.00847457627118644
+   },
+   {
+    "win": false,
+    "score": -485.0,
+    "food": 0.014830508474576272
+   },
+   {
+    "win": false,
+    "score": -453.0,
+    "food": 0.01694915254237288
+   },
+   {
+    "win": false,
+    "score": -363.0,
+    "food": 0.04025423728813559
+   },
+   {
+    "win": false,
+    "score": -448.0,
+    "food": 0.01694915254237288
+   },
+   {
+    "win": false,
+    "score": -457.0,
+    "food": 0.01694915254237288
+   },
+   {
+    "win": false,
+    "score": -484.0,
+    "food": 0.01059322033898305
+   },
+   {
+    "win": false,
+    "score": -493.0,
+    "food": 0.01059322033898305
+   },
+   {
+    "win": false,
+    "score": -448.0,
+    "food": 0.01694915254237288
+   },
+   {
+    "win": false,
+    "score": -483.0,
+    "food": 0.012711864406779662
+   },
+   {
+    "win": false,
+    "score": -484.0,
+    "food": 0.012711864406779662
+   },
+   {
+    "win": false,
+    "score": -475.0,
+    "food": 0.012711864406779662
+   },
+   {
+    "win": false,
+    "score": -483.0,
+    "food": 0.01059322033898305
+   },
+   {
+    "win": false,
+    "score": -426.0,
+    "food": 0.023305084745762712
+   },
+   {
+    "win": false,
+    "score": -440.0,
+    "food": 0.019067796610169493
+   },
+   {
+    "win": false,
+    "score": -497.0,
+    "food": 0.00847457627118644
+   },
+   {
+    "win": false,
+    "score": -475.0,
+    "food": 0.014830508474576272
+   },
+   {
+    "win": false,
+    "score": -494.0,
+    "food": 0.012711864406779662
+   },
+   {
+    "win": false,
+    "score": -505.0,
+    "food": 0.01059322033898305
+   },
+   {
+    "win": false,
+    "score": -459.0,
+    "food": 0.014830508474576272
+   },
+   {
+    "win": false,
+    "score": -490.0,
+    "food": 0.00847457627118644
+   },
+   {
+    "win": false,
+    "score": -429.0,
+    "food": 0.023305084745762712
+   },
+   {
+    "win": false,
+    "score": -470.0,
+    "food": 0.012711864406779662
+   },
+   {
+    "win": false,
+    "score": -497.0,
+    "food": 0.012711864406779662
+   },
+   {
+    "win": false,
+    "score": -471.0,
+    "food": 0.012711864406779662
+   },
+   {
+    "win": false,
+    "score": -434.0,
+    "food": 0.025423728813559324
+   },
+   {
+    "win": false,
+    "score": -424.0,
+    "food": 0.03389830508474576
+   },
+   {
+    "win": false,
+    "score": -499.0,
+    "food": 0.014830508474576272
+   },
+   {
+    "win": false,
+    "score": -451.0,
+    "food": 0.01694915254237288
+   },
+   {
+    "win": false,
+    "score": -457.0,
+    "food": 0.03177966101694915
+   },
+   {
+    "win": false,
+    "score": -484.0,
+    "food": 0.01059322033898305
+   },
+   {
+    "win": false,
+    "score": -430.0,
+    "food": 0.023305084745762712
+   },
+   {
+    "win": false,
+    "score": -350.0,
+    "food": 0.04449152542372881
+   },
+   {
+    "win": false,
+    "score": -440.0,
+    "food": 0.0211864406779661
+   },
+   {
+    "win": false,
+    "score": -444.0,
+    "food": 0.0211864406779661
+   },
+   {
+    "win": false,
+    "score": -456.0,
+    "food": 0.01694915254237288
+   },
+   {
+    "win": false,
+    "score": -962.0,
+    "food": 0.014830508474576272
+   },
+   {
+    "win": false,
+    "score": -503.0,
+    "food": 0.01059322033898305
+   },
+   {
+    "win": false,
+    "score": -470.0,
+    "food": 0.014830508474576272
+   },
+   {
+    "win": false,
+    "score": -451.0,
+    "food": 0.01694915254237288
+   },
+   {
+    "win": false,
+    "score": -459.0,
+    "food": 0.01694915254237288
+   },
+   {
+    "win": false,
+    "score": -477.0,
+    "food": 0.01694915254237288
+   },
+   {
+    "win": false,
+    "score": -457.0,
+    "food": 0.0211864406779661
+   },
+   {
+    "win": false,
+    "score": -454.0,
+    "food": 0.01694915254237288
+   },
+   {
+    "win": false,
+    "score": -484.0,
+    "food": 0.01694915254237288
+   },
+   {
+    "win": false,
+    "score": -456.0,
+    "food": 0.0211864406779661
+   },
+   {
+    "win": false,
+    "score": -429.0,
+    "food": 0.025423728813559324
+   },
+   {
+    "win": false,
+    "score": -423.0,
+    "food": 0.02754237288135593
+   },
+   {
+    "win": false,
+    "score": -438.0,
+    "food": 0.019067796610169493
+   },
+   {
+    "win": false,
+    "score": -491.0,
+    "food": 0.014830508474576272
+   },
+   {
+    "win": false,
+    "score": -475.0,
+    "food": 0.012711864406779662
+   },
+   {
+    "win": false,
+    "score": -450.0,
+    "food": 0.01694915254237288
+   },
+   {
+    "win": false,
+    "score": -394.0,
+    "food": 0.03389830508474576
+   },
+   {
+    "win": false,
+    "score": -416.0,
+    "food": 0.02754237288135593
+   },
+   {
+    "win": false,
+    "score": -414.0,
+    "food": 0.023305084745762712
+   },
+   {
+    "win": false,
+    "score": -483.0,
+    "food": 0.01059322033898305
+   },
+   {
+    "win": false,
+    "score": -438.0,
+    "food": 0.019067796610169493
+   },
+   {
+    "win": false,
+    "score": -993.0,
+    "food": 0.00847457627118644
+   },
+   {
+    "win": false,
+    "score": -470.0,
+    "food": 0.01694915254237288
+   },
+   {
+    "win": false,
+    "score": -464.0,
+    "food": 0.0211864406779661
+   },
+   {
+    "win": false,
+    "score": -443.0,
+    "food": 0.0211864406779661
+   },
+   {
+    "win": false,
+    "score": -452.0,
+    "food": 0.025423728813559324
+   },
+   {
+    "win": false,
+    "score": -471.0,
+    "food": 0.012711864406779662
+   },
+   {
+    "win": false,
+    "score": -377.0,
+    "food": 0.038135593220338986
+   },
+   {
+    "win": false,
+    "score": -483.0,
+    "food": 0.01059322033898305
+   },
+   {
+    "win": false,
+    "score": -486.0,
+    "food": 0.014830508474576272
+   },
+   {
+    "win": false,
+    "score": -394.0,
+    "food": 0.02754237288135593
+   },
+   {
+    "win": false,
+    "score": -438.0,
+    "food": 0.0211864406779661
+   },
+   {
+    "win": false,
+    "score": -458.0,
+    "food": 0.0211864406779661
+   },
+   {
+    "win": false,
+    "score": -463.0,
+    "food": 0.014830508474576272
+   },
+   {
+    "win": false,
+    "score": -497.0,
+    "food": 0.01059322033898305
+   },
+   {
+    "win": false,
+    "score": -440.0,
+    "food": 0.025423728813559324
+   },
+   {
+    "win": false,
+    "score": -485.0,
+    "food": 0.01059322033898305
+   },
+   {
+    "win": false,
+    "score": -448.0,
+    "food": 0.025423728813559324
+   },
+   {
+    "win": false,
+    "score": -473.0,
+    "food": 0.023305084745762712
+   },
+   {
+    "win": false,
+    "score": -925.0,
+    "food": 0.025423728813559324
+   },
+   {
+    "win": false,
+    "score": -450.0,
+    "food": 0.01694915254237288
+   },
+   {
+    "win": false,
+    "score": -418.0,
+    "food": 0.02754237288135593
+   },
+   {
+    "win": false,
+    "score": -472.0,
+    "food": 0.012711864406779662
+   },
+   {
+    "win": false,
+    "score": -477.0,
+    "food": 0.012711864406779662
+   },
+   {
+    "win": false,
+    "score": -404.0,
+    "food": 0.025423728813559324
+   },
+   {
+    "win": false,
+    "score": -452.0,
+    "food": 0.019067796610169493
+   }
+  ],
+  "ApproxQ|random": [
+   {
+    "win": false,
+    "score": 2740.0,
+    "food": 0.7330508474576272
+   },
+   {
+    "win": false,
+    "score": 2652.0,
+    "food": 0.7648305084745762
+   },
+   {
+    "win": true,
+    "score": 4472.0,
+    "food": 1.0
+   },
+   {
+    "win": false,
+    "score": 286.0,
+    "food": 0.1906779661016949
+   },
+   {
+    "win": false,
+    "score": -136.0,
+    "food": 0.08686440677966102
+   },
+   {
+    "win": true,
+    "score": 4479.0,
+    "food": 1.0
+   },
+   {
+    "win": false,
+    "score": -309.0,
+    "food": 0.046610169491525424
+   },
+   {
+    "win": false,
+    "score": 1145.0,
+    "food": 0.3983050847457627
+   },
+   {
+    "win": true,
+    "score": 4514.0,
+    "food": 1.0
+   },
+   {
+    "win": false,
+    "score": 44.0,
+    "food": 0.1292372881355932
+   },
+   {
+    "win": false,
+    "score": 1410.0,
+    "food": 0.4682203389830508
+   },
+   {
+    "win": false,
+    "score": 2809.0,
+    "food": 0.8072033898305084
+   },
+   {
+    "win": false,
+    "score": 2963.0,
+    "food": 0.8516949152542372
+   },
+   {
+    "win": true,
+    "score": 4450.0,
+    "food": 1.0
+   },
+   {
+    "win": false,
+    "score": 265.0,
+    "food": 0.18220338983050846
+   },
+   {
+    "win": true,
+    "score": 4436.0,
+    "food": 1.0
+   },
+   {
+    "win": false,
+    "score": 3166.0,
+    "food": 0.9088983050847458
+   },
+   {
+    "win": false,
+    "score": 2049.0,
+    "food": 0.6483050847457628
+   },
+   {
+    "win": true,
+    "score": 4468.0,
+    "food": 1.0
+   },
+   {
+    "win": false,
+    "score": 2113.0,
+    "food": 0.6419491525423728
+   },
+   {
+    "win": false,
+    "score": 998.0,
+    "food": 0.3686440677966102
+   },
+   {
+    "win": false,
+    "score": 2258.0,
+    "food": 0.6800847457627118
+   },
+   {
+    "win": true,
+    "score": 4460.0,
+    "food": 1.0
+   },
+   {
+    "win": true,
+    "score": 4459.0,
+    "food": 1.0
+   },
+   {
+    "win": false,
+    "score": 1464.0,
+    "food": 0.4788135593220339
+   },
+   {
+    "win": false,
+    "score": 2128.0,
+    "food": 0.6546610169491526
+   },
+   {
+    "win": true,
+    "score": 4384.0,
+    "food": 1.0
+   },
+   {
+    "win": false,
+    "score": 2529.0,
+    "food": 0.7542372881355932
+   },
+   {
+    "win": false,
+    "score": 1279.0,
+    "food": 0.4406779661016949
+   },
+   {
+    "win": true,
+    "score": 4629.0,
+    "food": 1.0
+   },
+   {
+    "win": false,
+    "score": 1719.0,
+    "food": 0.5508474576271186
+   },
+   {
+    "win": false,
+    "score": 2307.0,
+    "food": 0.6800847457627118
+   },
+   {
+    "win": true,
+    "score": 4467.0,
+    "food": 1.0
+   },
+   {
+    "win": true,
+    "score": 4427.0,
+    "food": 1.0
+   },
+   {
+    "win": true,
+    "score": 4420.0,
+    "food": 1.0
+   },
+   {
+    "win": false,
+    "score": 959.0,
+    "food": 0.3516949152542373
+   },
+   {
+    "win": false,
+    "score": 3475.0,
+    "food": 0.9957627118644068
+   },
+   {
+    "win": false,
+    "score": 3364.0,
+    "food": 0.9703389830508474
+   },
+   {
+    "win": true,
+    "score": 4463.0,
+    "food": 1.0
+   },
+   {
+    "win": false,
+    "score": 2851.0,
+    "food": 0.8326271186440678
+   },
+   {
+    "win": true,
+    "score": 4455.0,
+    "food": 1.0
+   },
+   {
+    "win": false,
+    "score": 3210.0,
+    "food": 0.913135593220339
+   },
+   {
+    "win": false,
+    "score": 735.0,
+    "food": 0.3008474576271186
+   },
+   {
+    "win": false,
+    "score": 3430.0,
+    "food": 0.9830508474576272
+   },
+   {
+    "win": false,
+    "score": 1192.0,
+    "food": 0.4258474576271186
+   },
+   {
+    "win": false,
+    "score": 3472.0,
+    "food": 0.989406779661017
+   },
+   {
+    "win": false,
+    "score": 2311.0,
+    "food": 0.7033898305084746
+   },
+   {
+    "win": true,
+    "score": 4423.0,
+    "food": 1.0
+   },
+   {
+    "win": false,
+    "score": 3441.0,
+    "food": 0.9851694915254238
+   },
+   {
+    "win": true,
+    "score": 4429.0,
+    "food": 1.0
+   },
+   {
+    "win": false,
+    "score": 1617.0,
+    "food": 0.5190677966101694
+   },
+   {
+    "win": true,
+    "score": 4512.0,
+    "food": 1.0
+   },
+   {
+    "win": true,
+    "score": 4466.0,
+    "food": 1.0
+   },
+   {
+    "win": true,
+    "score": 4480.0,
+    "food": 1.0
+   },
+   {
+    "win": false,
+    "score": 318.0,
+    "food": 0.19491525423728814
+   },
+   {
+    "win": false,
+    "score": 600.0,
+    "food": 0.2733050847457627
+   },
+   {
+    "win": true,
+    "score": 4435.0,
+    "food": 1.0
+   },
+   {
+    "win": false,
+    "score": 807.0,
+    "food": 0.3199152542372881
+   },
+   {
+    "win": false,
+    "score": 1495.0,
+    "food": 0.4830508474576271
+   },
+   {
+    "win": true,
+    "score": 4459.0,
+    "food": 1.0
+   },
+   {
+    "win": false,
+    "score": 210.0,
+    "food": 0.1716101694915254
+   },
+   {
+    "win": false,
+    "score": 1398.0,
+    "food": 0.4173728813559322
+   },
+   {
+    "win": false,
+    "score": 424.0,
+    "food": 0.2245762711864407
+   },
+   {
+    "win": false,
+    "score": 2688.0,
+    "food": 0.7796610169491526
+   },
+   {
+    "win": false,
+    "score": 978.0,
+    "food": 0.3538135593220339
+   },
+   {
+    "win": true,
+    "score": 4552.0,
+    "food": 1.0
+   },
+   {
+    "win": false,
+    "score": 2160.0,
+    "food": 0.6483050847457628
+   },
+   {
+    "win": false,
+    "score": 3432.0,
+    "food": 0.9915254237288136
+   },
+   {
+    "win": false,
+    "score": 582.0,
+    "food": 0.2605932203389831
+   },
+   {
+    "win": false,
+    "score": -79.0,
+    "food": 0.1016949152542373
+   },
+   {
+    "win": false,
+    "score": 1288.0,
+    "food": 0.4343220338983051
+   },
+   {
+    "win": false,
+    "score": 2589.0,
+    "food": 0.7690677966101694
+   },
+   {
+    "win": false,
+    "score": 2637.0,
+    "food": 0.7733050847457628
+   },
+   {
+    "win": true,
+    "score": 4494.0,
+    "food": 1.0
+   },
+   {
+    "win": false,
+    "score": 2791.0,
+    "food": 0.8072033898305084
+   },
+   {
+    "win": false,
+    "score": 1641.0,
+    "food": 0.5317796610169492
+   },
+   {
+    "win": false,
+    "score": 1636.0,
+    "food": 0.5317796610169492
+   },
+   {
+    "win": true,
+    "score": 4489.0,
+    "food": 1.0
+   },
+   {
+    "win": false,
+    "score": 2663.0,
+    "food": 0.7754237288135594
+   },
+   {
+    "win": false,
+    "score": 2809.0,
+    "food": 0.8114406779661016
+   },
+   {
+    "win": false,
+    "score": 3073.0,
+    "food": 0.8305084745762712
+   },
+   {
+    "win": false,
+    "score": 3559.0,
+    "food": 0.9703389830508474
+   },
+   {
+    "win": false,
+    "score": 1739.0,
+    "food": 0.5529661016949152
+   },
+   {
+    "win": true,
+    "score": 4475.0,
+    "food": 1.0
+   },
+   {
+    "win": true,
+    "score": 4407.0,
+    "food": 1.0
+   },
+   {
+    "win": false,
+    "score": 2962.0,
+    "food": 0.8559322033898306
+   },
+   {
+    "win": false,
+    "score": -322.0,
+    "food": 0.04449152542372881
+   },
+   {
+    "win": false,
+    "score": 3657.0,
+    "food": 0.9915254237288136
+   },
+   {
+    "win": true,
+    "score": 4500.0,
+    "food": 1.0
+   },
+   {
+    "win": false,
+    "score": 839.0,
+    "food": 0.3241525423728814
+   },
+   {
+    "win": false,
+    "score": 945.0,
+    "food": 0.3644067796610169
+   },
+   {
+    "win": false,
+    "score": 2508.0,
+    "food": 0.7372881355932204
+   },
+   {
+    "win": false,
+    "score": 1733.0,
+    "food": 0.5508474576271186
+   },
+   {
+    "win": false,
+    "score": 639.0,
+    "food": 0.2733050847457627
+   },
+   {
+    "win": true,
+    "score": 4519.0,
+    "food": 1.0
+   },
+   {
+    "win": true,
+    "score": 4437.0,
+    "food": 1.0
+   },
+   {
+    "win": false,
+    "score": 318.0,
+    "food": 0.19915254237288135
+   },
+   {
+    "win": true,
+    "score": 4482.0,
+    "food": 1.0
+   },
+   {
+    "win": true,
+    "score": 4467.0,
+    "food": 1.0
+   },
+   {
+    "win": true,
+    "score": 4523.0,
+    "food": 1.0
+   }
+  ],
+  "ApproxQ|directional": [
+   {
+    "win": false,
+    "score": -324.0,
+    "food": 0.0423728813559322
+   },
+   {
+    "win": false,
+    "score": -135.0,
+    "food": 0.08686440677966102
+   },
+   {
+    "win": false,
+    "score": 943.0,
+    "food": 0.3474576271186441
+   },
+   {
+    "win": false,
+    "score": -170.0,
+    "food": 0.20127118644067796
+   },
+   {
+    "win": false,
+    "score": -57.0,
+    "food": 0.1059322033898305
+   },
+   {
+    "win": false,
+    "score": 378.0,
+    "food": 0.2097457627118644
+   },
+   {
+    "win": false,
+    "score": -139.0,
+    "food": 0.08686440677966102
+   },
+   {
+    "win": false,
+    "score": -74.0,
+    "food": 0.2245762711864407
+   },
+   {
+    "win": false,
+    "score": 924.0,
+    "food": 0.3453389830508475
+   },
+   {
+    "win": false,
+    "score": 44.0,
+    "food": 0.1292372881355932
+   },
+   {
+    "win": false,
+    "score": 627.0,
+    "food": 0.2266949152542373
+   },
+   {
+    "win": false,
+    "score": 646.0,
+    "food": 0.23728813559322035
+   },
+   {
+    "win": false,
+    "score": -978.0,
+    "food": 0.125
+   },
+   {
+    "win": false,
+    "score": 195.0,
+    "food": 0.1673728813559322
+   },
+   {
+    "win": false,
+    "score": 687.0,
+    "food": 0.2860169491525424
+   },
+   {
+    "win": false,
+    "score": 511.0,
+    "food": 0.23940677966101695
+   },
+   {
+    "win": false,
+    "score": 118.0,
+    "food": 0.1504237288135593
+   },
+   {
+    "win": false,
+    "score": 370.0,
+    "food": 0.2097457627118644
+   },
+   {
+    "win": false,
+    "score": -276.0,
+    "food": 0.05508474576271186
+   },
+   {
+    "win": false,
+    "score": -267.0,
+    "food": 0.05508474576271186
+   },
+   {
+    "win": false,
+    "score": 18.0,
+    "food": 0.125
+   },
+   {
+    "win": false,
+    "score": 581.0,
+    "food": 0.2605932203389831
+   },
+   {
+    "win": false,
+    "score": 126.0,
+    "food": 0.1504237288135593
+   },
+   {
+    "win": false,
+    "score": -276.0,
+    "food": 0.05296610169491525
+   },
+   {
+    "win": false,
+    "score": -198.0,
+    "food": 0.07203389830508475
+   },
+   {
+    "win": false,
+    "score": 208.0,
+    "food": 0.1694915254237288
+   },
+   {
+    "win": false,
+    "score": -144.0,
+    "food": 0.0847457627118644
+   },
+   {
+    "win": false,
+    "score": 78.0,
+    "food": 0.13771186440677965
+   },
+   {
+    "win": false,
+    "score": 331.0,
+    "food": 0.20127118644067796
+   },
+   {
+    "win": false,
+    "score": 6.0,
+    "food": 0.125
+   },
+   {
+    "win": false,
+    "score": -321.0,
+    "food": 0.0423728813559322
+   },
+   {
+    "win": false,
+    "score": -267.0,
+    "food": 0.05508474576271186
+   },
+   {
+    "win": false,
+    "score": 1329.0,
+    "food": 0.4491525423728814
+   },
+   {
+    "win": false,
+    "score": 360.0,
+    "food": 0.2055084745762712
+   },
+   {
+    "win": false,
+    "score": -74.0,
+    "food": 0.1038135593220339
+   },
+   {
+    "win": false,
+    "score": 52.0,
+    "food": 0.13347457627118645
+   },
+   {
+    "win": false,
+    "score": -15.0,
+    "food": 0.12076271186440678
+   },
+   {
+    "win": false,
+    "score": 124.0,
+    "food": 0.1504237288135593
+   },
+   {
+    "win": false,
+    "score": 460.0,
+    "food": 0.2330508474576271
+   },
+   {
+    "win": false,
+    "score": 552.0,
+    "food": 0.2521186440677966
+   },
+   {
+    "win": false,
+    "score": 256.0,
+    "food": 0.1843220338983051
+   },
+   {
+    "win": false,
+    "score": 578.0,
+    "food": 0.2605932203389831
+   },
+   {
+    "win": false,
+    "score": -238.0,
+    "food": 0.0635593220338983
+   },
+   {
+    "win": false,
+    "score": 1554.0,
+    "food": 0.5021186440677966
+   },
+   {
+    "win": false,
+    "score": 1030.0,
+    "food": 0.3686440677966102
+   },
+   {
+    "win": false,
+    "score": -319.0,
+    "food": 0.04449152542372881
+   },
+   {
+    "win": false,
+    "score": -205.0,
+    "food": 0.06991525423728813
+   },
+   {
+    "win": false,
+    "score": 109.0,
+    "food": 0.1483050847457627
+   },
+   {
+    "win": false,
+    "score": 2324.0,
+    "food": 0.6885593220338984
+   },
+   {
+    "win": false,
+    "score": 1434.0,
+    "food": 0.4661016949152542
+   },
+   {
+    "win": false,
+    "score": 610.0,
+    "food": 0.2648305084745763
+   },
+   {
+    "win": false,
+    "score": 2133.0,
+    "food": 0.6567796610169492
+   },
+   {
+    "win": false,
+    "score": 1791.0,
+    "food": 0.559322033898305
+   },
+   {
+    "win": false,
+    "score": 609.0,
+    "food": 0.2648305084745763
+   },
+   {
+    "win": false,
+    "score": 939.0,
+    "food": 0.3538135593220339
+   },
+   {
+    "win": false,
+    "score": -260.0,
+    "food": 0.057203389830508475
+   },
+   {
+    "win": false,
+    "score": -329.0,
+    "food": 0.0423728813559322
+   },
+   {
+    "win": false,
+    "score": 633.0,
+    "food": 0.2754237288135593
+   },
+   {
+    "win": false,
+    "score": -302.0,
+    "food": 0.048728813559322036
+   },
+   {
+    "win": false,
+    "score": 1090.0,
+    "food": 0.3813559322033898
+   },
+   {
+    "win": false,
+    "score": 122.0,
+    "food": 0.1483050847457627
+   },
+   {
+    "win": false,
+    "score": 884.0,
+    "food": 0.336864406779661
+   },
+   {
+    "win": false,
+    "score": 566.0,
+    "food": 0.2584745762711864
+   },
+   {
+    "win": false,
+    "score": -24.0,
+    "food": 0.11440677966101695
+   },
+   {
+    "win": false,
+    "score": 1768.0,
+    "food": 0.5508474576271186
+   },
+   {
+    "win": false,
+    "score": 1108.0,
+    "food": 0.3983050847457627
+   },
+   {
+    "win": false,
+    "score": -136.0,
+    "food": 0.08686440677966102
+   },
+   {
+    "win": false,
+    "score": 327.0,
+    "food": 0.20127118644067796
+   },
+   {
+    "win": false,
+    "score": -183.0,
+    "food": 0.07627118644067797
+   },
+   {
+    "win": false,
+    "score": 1124.0,
+    "food": 0.3940677966101695
+   },
+   {
+    "win": false,
+    "score": 1793.0,
+    "food": 0.5572033898305084
+   },
+   {
+    "win": false,
+    "score": 250.0,
+    "food": 0.17796610169491525
+   },
+   {
+    "win": false,
+    "score": 210.0,
+    "food": 0.1716101694915254
+   },
+   {
+    "win": false,
+    "score": 1098.0,
+    "food": 0.3834745762711864
+   },
+   {
+    "win": false,
+    "score": 361.0,
+    "food": 0.2076271186440678
+   },
+   {
+    "win": false,
+    "score": 1296.0,
+    "food": 0.4491525423728814
+   },
+   {
+    "win": false,
+    "score": -196.0,
+    "food": 0.07415254237288135
+   },
+   {
+    "win": false,
+    "score": -309.0,
+    "food": 0.046610169491525424
+   },
+   {
+    "win": false,
+    "score": 406.0,
+    "food": 0.21822033898305085
+   },
+   {
+    "win": false,
+    "score": 596.0,
+    "food": 0.2648305084745763
+   },
+   {
+    "win": false,
+    "score": 2592.0,
+    "food": 0.7055084745762712
+   },
+   {
+    "win": false,
+    "score": 582.0,
+    "food": 0.2690677966101695
+   },
+   {
+    "win": false,
+    "score": 553.0,
+    "food": 0.2563559322033898
+   },
+   {
+    "win": false,
+    "score": 205.0,
+    "food": 0.1673728813559322
+   },
+   {
+    "win": false,
+    "score": 688.0,
+    "food": 0.2944915254237288
+   },
+   {
+    "win": false,
+    "score": 757.0,
+    "food": 0.3008474576271186
+   },
+   {
+    "win": false,
+    "score": -322.0,
+    "food": 0.04449152542372881
+   },
+   {
+    "win": false,
+    "score": 366.0,
+    "food": 0.2097457627118644
+   },
+   {
+    "win": false,
+    "score": 470.0,
+    "food": 0.2330508474576271
+   },
+   {
+    "win": false,
+    "score": -282.0,
+    "food": 0.05296610169491525
+   },
+   {
+    "win": false,
+    "score": 396.0,
+    "food": 0.22033898305084745
+   },
+   {
+    "win": false,
+    "score": 1112.0,
+    "food": 0.3453389830508475
+   },
+   {
+    "win": false,
+    "score": 380.0,
+    "food": 0.21822033898305085
+   },
+   {
+    "win": false,
+    "score": 107.0,
+    "food": 0.1440677966101695
+   },
+   {
+    "win": false,
+    "score": 258.0,
+    "food": 0.18220338983050846
+   },
+   {
+    "win": false,
+    "score": 31.0,
+    "food": 0.1271186440677966
+   },
+   {
+    "win": false,
+    "score": -90.0,
+    "food": 0.1016949152542373
+   },
+   {
+    "win": false,
+    "score": 556.0,
+    "food": 0.2542372881355932
+   },
+   {
+    "win": false,
+    "score": -63.0,
+    "food": 0.1059322033898305
+   },
+   {
+    "win": false,
+    "score": 388.0,
+    "food": 0.21822033898305085
+   }
+  ]
+ },
+ "weights": {
+  "TabularQ|random": null,
+  "TabularQ|directional": null,
+  "ApproxQ|random": {
+   "bias": 148.24985123541825,
+   "#-of-ghosts-1-step-away": -615.9578601390234,
+   "eats-food": 254.07972513150688,
+   "closest-food": -8.590931887398531
+  },
+  "ApproxQ|directional": {
+   "bias": -77.78689627308857,
+   "#-of-ghosts-1-step-away": -993.8542727550954,
+   "eats-food": 382.5726363521899,
+   "closest-food": -1.2447454369915298
+  }
+ }
+}
