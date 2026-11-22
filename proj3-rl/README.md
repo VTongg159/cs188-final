@@ -6,7 +6,6 @@ Value iteration, Q-learning and approximate Q-learning on Gridworld, the crawler
 - Value iteration and prioritized sweeping: [`valueIterationAgents.py`](valueIterationAgents.py)
 - Q-learning and approximate Q-learning: [`qlearningAgents.py`](qlearningAgents.py)
 - Parameter answers (Q2, Q3, Q7): [`analysis.py`](analysis.py)
-- Sources and AI-use note: [`reports/QUESTION_MAPPING.md`](reports/QUESTION_MAPPING.md)
 
 ## Autograder
 

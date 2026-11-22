@@ -4,7 +4,6 @@ Pacman finds paths with DFS, BFS, UCS and A* ([assignment](https://inst.eecs.ber
 
 - Algorithms: [`search.py`](search.py)
 - Search problems and heuristics: [`searchAgents.py`](searchAgents.py)
-- Sources and AI-use note: [`reports/QUESTION_MAPPING.md`](reports/QUESTION_MAPPING.md)
 
 ## Autograder
 

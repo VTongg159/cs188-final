@@ -3,7 +3,6 @@
 Pacman plays against ghosts with a reflex agent, Minimax, Alpha-Beta and Expectimax ([assignment](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj2/)).
 
 - Agents and evaluation functions: [`multiAgents.py`](multiAgents.py)
-- Sources and AI-use note: [`reports/QUESTION_MAPPING.md`](reports/QUESTION_MAPPING.md)
 
 ## Autograder
 
