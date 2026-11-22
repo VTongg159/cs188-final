@@ -16,7 +16,8 @@ import testClasses
 import random, math, traceback, sys, os
 import layout, textDisplay, pacman, gridworld
 import time
-from util import Counter, TimeoutFunction, FixedRandom, Experiences
+from util import Counter, TimeoutFunction, FixedRandom
+from experiences import Experiences
 from collections import defaultdict
 from pprint import PrettyPrinter
 from hashlib import sha1

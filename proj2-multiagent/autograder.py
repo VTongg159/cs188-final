@@ -14,7 +14,9 @@
 
 # Use the shared CS188 Pacman environment in ../pacman_env/.
 import os, sys
-sys.path.insert(1, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'pacman_env'))
+PACMAN_ENV = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'pacman_env')
+sys.path.insert(1, PACMAN_ENV)
+os.environ['PYTHONPATH'] = os.pathsep.join([PACMAN_ENV, os.environ.get('PYTHONPATH', '')])  # pacman.py finds agents here
 
 # imports from python standard library
 import grading

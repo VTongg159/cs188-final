@@ -5,10 +5,10 @@ Team project based on [UC Berkeley CS188 Spring 2026](https://inst.eecs.berkeley
 | Folder | Content |
 |---|---|
 | `pacman_env/` | Shared official CS188 Pacman environment (game, graphics, layouts) |
-| `run.py` | Runs any Pacman agent from Project 1 or 2 |
+| `run.py` | Runs any Pacman agent from Projects 1, 2 and 3 |
 | `proj1-search/` | Project 1: DFS, BFS, UCS, A*, heuristics |
 | `proj2-multiagent/` | Project 2: Reflex, Minimax, Alpha-Beta, Expectimax |
-| `proj3-rl/` | Project 3: Reinforcement Learning (not added yet) |
+| `proj3-rl/` | Project 3: Value Iteration, Q-Learning, Approximate Q-Learning |
 | `proj5-ml/` | Project 5: Machine Learning (PyTorch) |
 
 ## Setup
@@ -24,7 +24,7 @@ Python 3.10 or newer.
 
 ## Run Pacman
 
-Run from the repository root or from inside `proj1-search/` or `proj2-multiagent/`:
+Run from the repository root or from inside any project folder (`proj1-search/`, `proj2-multiagent/`, `proj3-rl/`):
 
 ```bash
 python3 run.py -l <map> -p <agent> [-a <agent args>]
@@ -52,6 +52,26 @@ python3 run.py -l minimaxClassic -p ExpectimaxAgent -a depth=3
 python3 run.py -l smallClassic   -p ExpectimaxAgent -a evalFn=better
 ```
 
+Project 3 (Reinforcement learning), `-x` = training games (no graphics), `-n` = total games:
+
+```bash
+python3 run.py -l smallGrid     -p PacmanQAgent    -x 2000 -n 2010
+python3 run.py -l mediumClassic -p ApproximateQAgent -a extractor=SimpleExtractor -x 50 -n 60
+```
+
+Gridworld and crawler (Project 3, run inside `proj3-rl/`):
+
+```bash
+cd proj3-rl
+python3 gridworld.py -a value -i 100 -k 10     # value iteration, 100 iterations, 10 episodes
+python3 gridworld.py -a priosweepvalue -i 1000 # prioritized sweeping
+python3 gridworld.py -a q -k 5 -m              # Q-learning, you move with the arrow keys
+python3 gridworld.py -a q -k 100 -g BridgeGrid # Q-learning on another grid
+python3 crawler.py                             # Q-learning crawler robot
+```
+
+Gridworld options: `-g` grid (BookGrid, BridgeGrid, CliffGrid, DiscountGrid, MazeGrid), `-d` discount, `-n` noise, `-r` living reward, `-e` epsilon, `-l` learning rate, `-q` no graphics.
+
 Useful options:
 
 | Option | Meaning |
@@ -70,6 +90,7 @@ Maps are in `pacman_env/layouts/` (official CS188 maps). All options: `python3 r
 ```bash
 cd proj1-search      && python3 autograder.py --no-graphics && cd ..   # 26/25
 cd proj2-multiagent  && python3 autograder.py --no-graphics && cd ..   # 25/25
+cd proj3-rl          && python3 autograder.py --no-graphics && cd ..   # 26/25
 cd proj5-ml          && python3 autograder.py && cd ..
 ```
 
@@ -83,8 +104,11 @@ One question only: `python3 autograder.py -q q1 --no-graphics`
 
 ## Notes on the shared environment
 
-`pacman_env/` is the official Spring 2026 starter (v1.004). Its layouts are byte-identical to the official zips.
-Only two changes were needed to share one copy between Projects 1 and 2:
+`pacman_env/` is the official Spring 2026 starter (v1.004). Its layouts are byte-identical to the official zips
+(`smallGrid` and `mediumGrid` come from the Project 3 zip). The Project 2 and Project 3 starters ship the same framework.
+Changes needed to share one copy (only the first two touch `pacman_env/`):
 
 - `game.py`: action order is fixed to the Project 2 order (West, Stop, East, North, South), which the Project 2 autograder needs.
 - `layout.py`: maps are also looked up in `pacman_env/layouts/`.
+- Project 3: the recorded test data (`Experiences`) moved unchanged from its `util.py` to `proj3-rl/experiences.py`.
+- Entry scripts (`autograder.py`, `gridworld.py`, `crawler.py`) add `../pacman_env` to the Python path.

@@ -1,4 +1,4 @@
-"""Run any Pacman agent from Project 1 or Project 2 in the shared environment.
+"""Run any Pacman agent from Projects 1, 2 or 3 in the shared environment.
 
 Usage (from the repository root):
     python run.py -l mediumMaze -p SearchAgent -a fn=bfs
@@ -12,7 +12,7 @@ import sys
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DIRS = [os.path.join(ROOT, name)
-        for name in ('pacman_env', 'proj1-search', 'proj2-multiagent')]
+        for name in ('pacman_env', 'proj1-search', 'proj2-multiagent', 'proj3-rl')]
 
 # pacman.py finds agents (files ending in "gents.py") through $PYTHONPATH.
 sys.path[:0] = DIRS
