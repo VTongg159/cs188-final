@@ -9,11 +9,30 @@ This repository covers Projects 1, 2, 3 and 5.
 
 | Folder | Project | Topics |
 |---|---|---|
+| `pacman_env/` | – | Shared CS188 Pacman environment (game engine, graphics, layouts) used by Projects 1 and 2 |
 | `proj1-search/` | Project 1 – Search | DFS, BFS, UCS, A*, heuristics |
 | `proj2-multiagent/` | Project 2 – Multi-Agent Search | Reflex agent, Minimax, Alpha-Beta, Expectimax |
 | `proj3-rl/` | Project 3 – Reinforcement Learning | Value Iteration, Q-Learning, Approximate Q-Learning |
 | `proj5-ml/` | Project 5 – Machine Learning | Perceptron, neural networks, RNN, CNN, attention (PyTorch) |
 | `docs/` | – | Reports and shared documents |
+
+## Shared Pacman environment
+
+Projects 1 and 2 run on one copy of the official CS188 Spring 2026 Pacman framework in
+`pacman_env/`. Each project folder keeps only its own code and its autograder.
+`run.py` loads agents from both projects, so all algorithms can be compared on the same layouts:
+
+```bash
+python3 -B run.py -l mediumMaze -p SearchAgent -a fn=bfs -q             # Project 1
+python3 -B run.py -l smallClassic -p AlphaBetaAgent -a depth=3 -q -f    # Project 2
+```
+
+Changes from the official starter files (both needed to share one copy):
+
+- `game.py`: the action order is fixed to the Project 2 starter order (West, Stop, East, North, South).
+  The Project 2 autograder answers depend on this order, and Project 1 passes with either order.
+- `layout.py`: `getLayout` also looks in `pacman_env/layouts/`.
+- `autograder.py` in each project adds `../pacman_env` to the Python path.
 
 ## Getting started
 

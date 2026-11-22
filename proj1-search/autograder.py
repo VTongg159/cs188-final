@@ -12,6 +12,10 @@
 # Pieter Abbeel (pabbeel@cs.berkeley.edu), and edited by Noemi Chulo.
 
 
+# Use the shared CS188 Pacman environment in ../pacman_env/.
+import os, sys
+sys.path.insert(1, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'pacman_env'))
+
 # imports from python standard library
 import grading
 import importlib.util
