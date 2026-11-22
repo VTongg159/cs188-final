@@ -20,49 +20,55 @@
 # value iteration.
 
 def question2():
+    # No noise: crossing the bridge is safe, so the far +10 exit is worth it.
     answerDiscount = 0.9
-    answerNoise = 0.2
+    answerNoise = 0.0
     return answerDiscount, answerNoise
 
 def question3a():
-    answerDiscount = None
-    answerNoise = None
-    answerLivingReward = None
+    # Close exit (+1), risking the cliff: low discount, no noise.
+    answerDiscount = 0.3
+    answerNoise = 0.0
+    answerLivingReward = 0.0
     return answerDiscount, answerNoise, answerLivingReward
     # If not possible, return 'NOT POSSIBLE'
 
 def question3b():
-    answerDiscount = None
-    answerNoise = None
-    answerLivingReward = None
+    # Close exit (+1), avoiding the cliff: low discount, some noise.
+    answerDiscount = 0.3
+    answerNoise = 0.2
+    answerLivingReward = 0.0
     return answerDiscount, answerNoise, answerLivingReward
     # If not possible, return 'NOT POSSIBLE'
 
 def question3c():
-    answerDiscount = None
-    answerNoise = None
-    answerLivingReward = None
+    # Distant exit (+10), risking the cliff: high discount, no noise.
+    answerDiscount = 0.9
+    answerNoise = 0.0
+    answerLivingReward = 0.0
     return answerDiscount, answerNoise, answerLivingReward
     # If not possible, return 'NOT POSSIBLE'
 
 def question3d():
-    answerDiscount = None
-    answerNoise = None
-    answerLivingReward = None
+    # Distant exit (+10), avoiding the cliff: high discount, some noise.
+    answerDiscount = 0.9
+    answerNoise = 0.2
+    answerLivingReward = 0.0
     return answerDiscount, answerNoise, answerLivingReward
     # If not possible, return 'NOT POSSIBLE'
 
 def question3e():
-    answerDiscount = None
-    answerNoise = None
-    answerLivingReward = None
+    # Avoid both exits and the cliff: living forever pays more than exiting.
+    answerDiscount = 0.0
+    answerNoise = 0.0
+    answerLivingReward = 1.0
     return answerDiscount, answerNoise, answerLivingReward
     # If not possible, return 'NOT POSSIBLE'
 
 def question7():
-    answerEpsilon = None
-    answerLearningRate = None
-    return answerEpsilon, answerLearningRate
+    # 50 episodes are not enough to learn the optimal bridge policy
+    # with more than 99% probability for any epsilon / learning rate.
+    return 'NOT POSSIBLE'
     # If not possible, return 'NOT POSSIBLE'
 
 if __name__ == '__main__':

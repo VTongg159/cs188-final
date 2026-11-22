@@ -60,8 +60,20 @@ class ValueIterationAgent(ValueEstimationAgent):
         self.runValueIteration()
 
     def runValueIteration(self):
-        # Write value iteration code here
-        "*** YOUR CODE HERE ***"
+        # Batch value iteration: every V_{k+1} is computed from the old V_k.
+        for _ in range(self.iterations):
+            newValues = util.Counter()
+            for state in self.mdp.getStates():
+                if not self.mdp.isTerminal(state):
+                    newValues[state] = self.maxQValue(state)
+            self.values = newValues
+
+    def maxQValue(self, state):
+        """max_a Q(state, a), or 0 if the state has no actions."""
+        actions = self.mdp.getPossibleActions(state)
+        if not actions:
+            return 0
+        return max(self.computeQValueFromValues(state, action) for action in actions)
 
 
     def getValue(self, state):
@@ -76,8 +88,12 @@ class ValueIterationAgent(ValueEstimationAgent):
           Compute the Q-value of action in state from the
           value function stored in self.values.
         """
-        "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        # Q(s, a) = sum over s' of T(s, a, s') * [R(s, a, s') + discount * V(s')]
+        qValue = 0
+        for nextState, prob in self.mdp.getTransitionStatesAndProbs(state, action):
+            reward = self.mdp.getReward(state, action, nextState)
+            qValue += prob * (reward + self.discount * self.values[nextState])
+        return qValue
 
     def computeActionFromValues(self, state):
         """
@@ -88,8 +104,10 @@ class ValueIterationAgent(ValueEstimationAgent):
           there are no legal actions, which is the case at the
           terminal state, you should return None.
         """
-        "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        actions = self.mdp.getPossibleActions(state)
+        if not actions:
+            return None
+        return max(actions, key=lambda action: self.computeQValueFromValues(state, action))
 
     def getPolicy(self, state):
         return self.computeActionFromValues(state)
@@ -120,5 +138,33 @@ class PrioritizedSweepingValueIterationAgent(ValueIterationAgent):
         ValueIterationAgent.__init__(self, mdp, discount, iterations)
 
     def runValueIteration(self):
-        "*** YOUR CODE HERE ***"
+        states = self.mdp.getStates()
+
+        # 1. Predecessors of each state: states that can reach it with prob > 0.
+        predecessors = {state: set() for state in states}
+        for state in states:
+            for action in self.mdp.getPossibleActions(state):
+                for nextState, prob in self.mdp.getTransitionStatesAndProbs(state, action):
+                    if prob > 0:
+                        predecessors[nextState].add(state)
+
+        # 2. Queue every non-terminal state by its error |V(s) - max_a Q(s, a)|.
+        #    util.PriorityQueue pops the lowest priority, so use -error.
+        queue = util.PriorityQueue()
+        for state in states:
+            if not self.mdp.isTerminal(state):
+                error = abs(self.values[state] - self.maxQValue(state))
+                queue.update(state, -error)
+
+        # 3. Update the state with the largest error, then requeue its predecessors.
+        for _ in range(self.iterations):
+            if queue.isEmpty():
+                break
+            state = queue.pop()
+            if not self.mdp.isTerminal(state):
+                self.values[state] = self.maxQValue(state)
+            for predecessor in predecessors[state]:
+                error = abs(self.values[predecessor] - self.maxQValue(predecessor))
+                if error > self.theta:
+                    queue.update(predecessor, -error)
 
