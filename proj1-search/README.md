@@ -14,16 +14,16 @@ The local autograder reports **26/25**, including the bonus point for Q7. Q9 is 
 
 ## Run Pacman
 
-From `proj1-search/`, use `-q` to run without the GUI or replace it with `-t` for a text display.
+From the repository root, use `-q` to run without the GUI or replace it with `-t` for a text display.
 
 ```bash
-python3 -B pacman.py -l mediumMaze -p SearchAgent -a fn=dfs -q
-python3 -B pacman.py -l mediumMaze -p SearchAgent -a fn=bfs -q
-python3 -B pacman.py -l mediumMaze -p SearchAgent -a fn=ucs -q
-python3 -B pacman.py -l bigMaze -p SearchAgent -a fn=astar,heuristic=manhattanHeuristic -q
-python3 -B pacman.py -l mediumCorners -p AStarCornersAgent -q
-python3 -B pacman.py -l trickySearch -p AStarFoodSearchAgent -q
-python3 -B pacman.py -l bigSearch -p ClosestDotSearchAgent -q
+python3 -B run.py -l mediumMaze -p SearchAgent -a fn=dfs -q
+python3 -B run.py -l mediumMaze -p SearchAgent -a fn=bfs -q
+python3 -B run.py -l mediumMaze -p SearchAgent -a fn=ucs -q
+python3 -B run.py -l bigMaze -p SearchAgent -a fn=astar,heuristic=manhattanHeuristic -q
+python3 -B run.py -l mediumCorners -p AStarCornersAgent -q
+python3 -B run.py -l trickySearch -p AStarFoodSearchAgent -q
+python3 -B run.py -l bigSearch -p ClosestDotSearchAgent -q
 ```
 
 The search algorithms are in [`search.py`](search.py). Pacman agents, search problems, and heuristics are in [`searchAgents.py`](searchAgents.py). See the [sources and AI-use note](reports/QUESTION_MAPPING.md) for attribution.

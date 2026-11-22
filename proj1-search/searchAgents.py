@@ -38,6 +38,7 @@ from typing import List, Tuple, Any
 from game import Directions
 from game import Agent
 from game import Actions
+import itertools
 import util
 import time
 import search
@@ -295,16 +296,16 @@ class CornersProblem(search.SearchProblem):
         Returns the start state (in your state space, not the full Pacman state
         space)
         """
-        # Count a corner occupied at the start as already visited.
-        visited = sum(1 << i for i, corner in enumerate(self.corners)
-                      if corner == self.startingPosition)
-        return self.startingPosition, visited
+        # State = (position, corners not visited yet).
+        remaining = tuple(c for c in self.corners if c != self.startingPosition)
+        return self.startingPosition, remaining
 
     def isGoalState(self, state: Any):
         """
         Returns whether this search state is a goal state of the problem.
         """
-        return state[1] == (1 << len(self.corners)) - 1
+        position, remaining = state
+        return len(remaining) == 0
 
     def getSuccessors(self, state: Any):
         """
@@ -326,16 +327,13 @@ class CornersProblem(search.SearchProblem):
             #   nextx, nexty = int(x + dx), int(y + dy)
             #   hitsWall = self.walls[nextx][nexty]
 
-            (x, y), visited = state
+            (x, y), remaining = state
             dx, dy = Actions.directionToVector(action)
-            next_position = int(x + dx), int(y + dy)
-            if not self.walls[next_position[0]][next_position[1]]:
-                next_visited = visited
-                for i, corner in enumerate(self.corners):
-                    if next_position == corner:
-                        next_visited |= 1 << i
-                # Integers and tuples are immutable: siblings remain independent.
-                successors.append(((next_position, next_visited), action, 1))
+            nextx, nexty = int(x + dx), int(y + dy)
+            if not self.walls[nextx][nexty]:
+                nextPosition = (nextx, nexty)
+                nextRemaining = tuple(c for c in remaining if c != nextPosition)
+                successors.append(((nextPosition, nextRemaining), action, 1))
 
         self._expanded += 1 # DO NOT CHANGE
         return successors
@@ -367,29 +365,18 @@ def cornersHeuristic(state: Any, problem: CornersProblem):
     shortest path from the state to a goal of the problem; i.e.  it should be
     admissible (as well as consistent).
     """
-    corners = problem.corners # These are the corner coordinates
-    walls = problem.walls # These are the walls of the maze, as a Grid (game.py)
-
-    position, visited = state
-    remaining = ((1 << len(corners)) - 1) & ~visited
-    if not remaining:
-        return 0
-    # The corner-to-corner part depends only on this problem's fixed geometry.
-    # Held-Karp subset DP preserves the exact wall-free heuristic while avoiding
-    # repeated permutation enumeration. Four corners need only 4 * 16 entries.
-    if not hasattr(problem, '_corner_tour_costs'):
-        costs = {(i, 0): 0 for i in range(len(corners))}
-        distances = [[util.manhattanDistance(a, b) for b in corners]
-                     for a in corners]
-        for mask in range(1, 1 << len(corners)):
-            for first in range(len(corners)):
-                costs[first, mask] = min(
-                    distances[first][j] + costs[j, mask ^ (1 << j)]
-                    for j in range(len(corners)) if mask & (1 << j))
-        problem._corner_tour_costs = costs
-    return min(util.manhattanDistance(position, corner)
-               + problem._corner_tour_costs[i, remaining ^ (1 << i)]
-               for i, corner in enumerate(corners) if remaining & (1 << i))
+    # Shortest tour through the remaining corners if there were no walls
+    # (Manhattan distances). Ignoring walls only makes paths shorter, so the
+    # heuristic is admissible and consistent. At most 4! = 24 orders.
+    position, remaining = state
+    best = 0 if not remaining else float('inf')
+    for order in itertools.permutations(remaining):
+        cost, current = 0, position
+        for corner in order:
+            cost += util.manhattanDistance(current, corner)
+            current = corner
+        best = min(best, cost)
+    return best
 
 class AStarCornersAgent(SearchAgent):
     "A SearchAgent for FoodSearchProblem using A* and your foodHeuristic"
@@ -481,48 +468,16 @@ def foodHeuristic(state: Tuple[Tuple, List[List]], problem: FoodSearchProblem):
     Subsequent calls to this heuristic can access
     problem.heuristicInfo['wallCount']
     """
+    # Maze distance to the farthest food: Pacman must at least walk there.
+    # Distances are cached because walls never change.
     position, foodGrid = state
-    foods = tuple(foodGrid.asList())
-    if not foods:
-        return 0
-
-    # Walls never change. One BFS per food supplies distances to all positions.
-    # The cache belongs to this problem instance, not to a global layout.
-    maps = problem.heuristicInfo.setdefault('food_distance_maps', {})
-    walls = problem.walls
-    for source in foods:
-        if source in maps:
-            continue
-        distances = {source: 0}
-        queue = util.Queue()
-        queue.push(source)
-        while not queue.isEmpty():
-            x, y = queue.pop()
-            for next_position in ((x + 1, y), (x - 1, y),
-                                  (x, y + 1), (x, y - 1)):
-                nx, ny = next_position
-                if (0 <= nx < walls.width and 0 <= ny < walls.height
-                        and not walls[nx][ny] and next_position not in distances):
-                    distances[next_position] = distances[(x, y)] + 1
-                    queue.push(next_position)
-        maps[source] = distances
-
-    nearest = min(maps[food].get(position, float('inf')) for food in foods)
-    tree_cache = problem.heuristicInfo.setdefault('food_mst_costs', {})
-    if foods not in tree_cache:
-        # Prim's algorithm on the complete graph weighted by maze distances.
-        edge_cost = {food: maps[foods[0]].get(food, float('inf'))
-                     for food in foods[1:]}
-        tree_cost = 0
-        while edge_cost:
-            chosen = min(edge_cost, key=edge_cost.get)
-            tree_cost += edge_cost.pop(chosen)
-            for food in edge_cost:
-                edge_cost[food] = min(edge_cost[food],
-                                      maps[chosen].get(food, float('inf')))
-        tree_cache[foods] = tree_cost
-    # Any completion must reach a first food and then connect all remaining food.
-    return nearest + tree_cache[foods]
+    farthest = 0
+    for food in foodGrid.asList():
+        key = (position, food)
+        if key not in problem.heuristicInfo:
+            problem.heuristicInfo[key] = mazeDistance(position, food, problem.startingGameState)
+        farthest = max(farthest, problem.heuristicInfo[key])
+    return farthest
 
 class ClosestDotSearchAgent(SearchAgent):
     "Search for all food using a sequence of searches"
@@ -546,20 +501,10 @@ class ClosestDotSearchAgent(SearchAgent):
         Returns a path (a list of actions) to the closest dot, starting from
         gameState.
         """
-        # Here are some useful elements of the startState
-        startPosition = gameState.getPacmanPosition()
-        food = gameState.getFood()
-        walls = gameState.getWalls()
         problem = AnyFoodSearchProblem(gameState)
 
-        # Custom GameStates may contain food under Pacman. STOP consumes it and
-        # makes progress in the caller's loop, whereas an empty path would not.
-        if food[startPosition[0]][startPosition[1]]:
-            return [Directions.STOP]
-        actions = search.breadthFirstSearch(problem)
-        if not actions and food.count() > 0:
-            raise ValueError('Remaining food is unreachable from Pacman.')
-        return actions
+        # BFS stops at the first (= closest) position that has food.
+        return search.breadthFirstSearch(problem)
 
 class AnyFoodSearchProblem(PositionSearchProblem):
     """
@@ -593,7 +538,6 @@ class AnyFoodSearchProblem(PositionSearchProblem):
         complete the problem definition.
         """
         x,y = state
-
         return self.food[x][y]
 
 def mazeDistance(point1: Tuple[int, int], point2: Tuple[int, int], gameState: pacman.GameState) -> int:

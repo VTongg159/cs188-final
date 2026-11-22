@@ -37,3 +37,16 @@ Gradescope chưa và sẽ không được tự động nộp. Không công khai 
 giữ nguyên thông tin bản quyền Berkeley trong starter.
 
 Nguồn chính sách: https://inst.eecs.berkeley.edu/~cs188/sp26/policies/#genai-policy
+
+## Cập nhật 22/11/2026: đơn giản hóa code và dùng môi trường chung
+
+Bảng trên mô tả phiên bản trước. Code đã được viết lại cho đơn giản hơn, với sự hỗ trợ của Claude Code:
+
+- Q1–Q4: mỗi thuật toán là một hàm riêng. Frontier lưu `(state, actions)` (UCS/A* thêm `cost`), bỏ qua state đã expand khi pop.
+- Q5: state là `(position, tuple các góc chưa đi qua)`.
+- Q6: duyệt mọi thứ tự các góc còn lại (tối đa 4! = 24) theo khoảng cách Manhattan.
+- Q7: khoảng cách mê cung tới food xa nhất (`mazeDistance`, cache theo cặp vị trí). trickySearch mở 4137 nút, vẫn dưới ngưỡng 7000.
+- Q8: BFS trên `AnyFoodSearchProblem`.
+
+Q5 và Q7 bây giờ trùng ý tưởng với repository tham khảo ở bảng trên. Đây là các cách giải phổ biến của bài.
+Autograder vẫn đạt 26/25.

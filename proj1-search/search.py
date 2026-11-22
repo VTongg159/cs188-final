@@ -19,17 +19,7 @@ Pacman agents (in searchAgents.py).
 
 import util
 
-# Independent self-study implementation assisted by OpenAI Codex.
-# Sources and actual AI involvement: reports/QUESTION_MAPPING.md.
-
-def _actions_from_node(node):
-    """Follow immutable parent records, then put actions in execution order."""
-    actions = []
-    while node[1] is not None:
-        actions.append(node[2])
-        node = node[1]
-    actions.reverse()
-    return actions
+# Sources and AI involvement: reports/QUESTION_MAPPING.md.
 
 class SearchProblem:
     """
@@ -85,74 +75,62 @@ def tinyMazeSearch(problem):
     return  [s, s, w, s, w, w, s, w]
 
 def depthFirstSearch(problem: SearchProblem):
-    """
-    Search the deepest nodes in the search tree first.
+    """Search the deepest nodes in the search tree first (graph search)."""
+    frontier = util.Stack()                      # LIFO: newest node first
+    frontier.push((problem.getStartState(), []))  # (state, actions to reach it)
+    visited = set()
 
-    Your search algorithm needs to return a list of actions that reaches the
-    goal. Make sure to implement a graph search algorithm.
-
-    To get started, you might want to try some of these simple commands to
-    understand the search problem that is being passed in:
-
-    print("Start:", problem.getStartState())
-    print("Is the start a goal?", problem.isGoalState(problem.getStartState()))
-    print("Start's successors:", problem.getSuccessors(problem.getStartState()))
-    """
-    frontier = util.Stack()
-    frontier.push((problem.getStartState(), None, None))
-    expanded = set()
     while not frontier.isEmpty():
-        node = frontier.pop()
-        state = node[0]
-        # Multiple pending paths may reach a state; expand only the first pop.
-        if state in expanded:
+        state, actions = frontier.pop()
+        if state in visited:
             continue
         if problem.isGoalState(state):
-            return _actions_from_node(node)
-        expanded.add(state)
-        for successor, action, _ in problem.getSuccessors(state):
-            if successor not in expanded:
-                frontier.push((successor, node, action))
+            return actions
+        visited.add(state)
+        for nextState, action, _ in problem.getSuccessors(state):
+            if nextState not in visited:
+                frontier.push((nextState, actions + [action]))
     return []
+
 
 def breadthFirstSearch(problem: SearchProblem):
-    """Search the shallowest nodes in the search tree first."""
-    start = problem.getStartState()
-    frontier = util.Queue()
-    frontier.push((start, None, None))
-    discovered = {start}
-    while not frontier.isEmpty():
-        node = frontier.pop()
-        state = node[0]
-        if problem.isGoalState(state):
-            return _actions_from_node(node)
-        for successor, action, _ in problem.getSuccessors(state):
-            if successor not in discovered:
-                # First discovery has minimum depth under FIFO ordering.
-                discovered.add(successor)
-                frontier.push((successor, node, action))
-    return []
+    """Search the shallowest nodes in the search tree first (graph search)."""
+    frontier = util.Queue()                      # FIFO: oldest node first
+    frontier.push((problem.getStartState(), []))
+    visited = set()
 
-def uniformCostSearch(problem: SearchProblem):
-    """Search the node of least total cost first."""
-    start = problem.getStartState()
-    frontier = util.PriorityQueue()
-    frontier.push((start, None, None, 0), 0)
-    best_g = {start: 0}
     while not frontier.isEmpty():
-        node = frontier.pop()
-        state, _, _, cost = node
-        # A cheaper record may have been inserted after this record.
-        if cost > best_g[state]:
+        state, actions = frontier.pop()
+        if state in visited:
             continue
         if problem.isGoalState(state):
-            return _actions_from_node(node)
-        for successor, action, step_cost in problem.getSuccessors(state):
-            candidate = cost + step_cost
-            if candidate < best_g.get(successor, float('inf')):
-                best_g[successor] = candidate
-                frontier.push((successor, node, action, candidate), candidate)
+            return actions
+        visited.add(state)
+        for nextState, action, _ in problem.getSuccessors(state):
+            if nextState not in visited:
+                frontier.push((nextState, actions + [action]))
     return []
+
+
+def uniformCostSearch(problem: SearchProblem):
+    """Search the node of least total path cost g(n) first."""
+    frontier = util.PriorityQueue()              # priority = g(n)
+    frontier.push((problem.getStartState(), [], 0), 0)
+    visited = set()
+
+    while not frontier.isEmpty():
+        state, actions, cost = frontier.pop()
+        if state in visited:
+            continue
+        if problem.isGoalState(state):
+            return actions
+        visited.add(state)
+        for nextState, action, stepCost in problem.getSuccessors(state):
+            if nextState not in visited:
+                newCost = cost + stepCost
+                frontier.push((nextState, actions + [action], newCost), newCost)
+    return []
+
 
 def nullHeuristic(state, problem=None):
     """
@@ -161,26 +139,26 @@ def nullHeuristic(state, problem=None):
     """
     return 0
 
+
 def aStarSearch(problem: SearchProblem, heuristic=nullHeuristic):
-    """Search the node that has the lowest combined cost and heuristic first."""
+    """Search the node with the lowest f(n) = g(n) + h(n) first."""
     start = problem.getStartState()
-    frontier = util.PriorityQueue()
-    frontier.push((start, None, None, 0), heuristic(start, problem))
-    best_g = {start: 0}
+    frontier = util.PriorityQueue()              # priority = g(n) + h(n)
+    frontier.push((start, [], 0), heuristic(start, problem))
+    visited = set()
+
     while not frontier.isEmpty():
-        node = frontier.pop()
-        state, _, _, cost = node
-        if cost > best_g[state]:
+        state, actions, cost = frontier.pop()
+        if state in visited:
             continue
         if problem.isGoalState(state):
-            return _actions_from_node(node)
-        for successor, action, step_cost in problem.getSuccessors(state):
-            candidate = cost + step_cost
-            # Compare g with g, never f with g. A better path can reopen a state.
-            if candidate < best_g.get(successor, float('inf')):
-                best_g[successor] = candidate
-                priority = candidate + heuristic(successor, problem)
-                frontier.push((successor, node, action, candidate), priority)
+            return actions
+        visited.add(state)
+        for nextState, action, stepCost in problem.getSuccessors(state):
+            if nextState not in visited:
+                newCost = cost + stepCost
+                priority = newCost + heuristic(nextState, problem)
+                frontier.push((nextState, actions + [action], newCost), priority)
     return []
 
 
